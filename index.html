@@ -204,7 +204,8 @@ a{color:var(--accent)}
       <li><b>Sayt nima?</b> Korxonaning O'zbekiston qoidasidagi buxgalteriyasini xalqaro (IFRS) qoidaga "tarjima" qiladigan dastur.</li>
       <li><b>Nima uchun kerak?</b> Chet el investori, xalqaro bank va auditor hisobotni faqat IFRS bo'yicha qabul qiladi.</li>
       <li><b>IFRS ga mosmi?</b> Asosan ha. Majburiy hisobotlar bor, tekshirilgan 26 ta IFRS qoidasidan 21 tasi saytda bor.</li>
-      <li><b>Nima yetishmaydi?</b> (1) Foyda hisobotida "boshqa daromad" (OCI) qatori. (2) Davlatga topshiriladigan 1-shakl va 2-shakl. (3) Bosh sahifadagi "Pul" raqamida bitta xato.</li>
+      <li><b>Nima yetishmaydi?</b> (1) Foyda hisobotida "boshqa daromad" (OCI) raqamlari: server hisoblashi kerak. (2) Davlatga topshiriladigan 1-shakl va 2-shakl.</li>
+      <li><b>Nima tuzatildi?</b> Bosh sahifadagi "Pul" xatosi, hisobot valyutasi (doim so'm edi), foyda hisobotidagi OCI ogohlantirishi va o'zbekcha tarjima. To'liq ro'yxat "Kamchiliklar" bo'limida.</li>
       <li><b>Kirim-chiqim bormi?</b> Ha: daromad, xarajat, foyda, kassa, bank, qarzlar, to'lov kalendari.</li>
     </ul>
   </div>
@@ -701,22 +702,41 @@ a{color:var(--accent)}
 <section id="muammo">
   <div class="secnum">10</div>
   <h2>Topilgan kamchiliklar va nima qilish kerak</h2>
-  <p>Kodni tekshirganda topilgan muammolar. "Muhimligi" ustuni nimani birinchi tuzatish kerakligini ko'rsatadi.</p>
+  <p>Sayt kodi to'liq tekshirildi. Pastda ikkita jadval bor: <b>tuzatilganlar</b> (saytning o'zida, 2026-yil 19-noyabr) va <b>hali qolganlar</b> (ko'pchiligi server tomonda ish talab qiladi).</p>
+
+  <h3>Tuzatildi <span class="pill p-ok">6 ta</span></h3>
   <div class="tblbox">
   <table class="tbl">
-    <thead><tr><th>Muhimligi</th><th>Muammo</th><th>Nima qilish kerak</th><th>Fayl</th></tr></thead>
+    <thead><tr><th>Qaysi standart</th><th>Muammo nima edi</th><th>Endi qanday</th><th>Fayl</th></tr></thead>
     <tbody>
-      <tr><td><span class="pill p-bad">Yuqori</span></td><td>Foyda-zarar hisobotida OCI va "jami umumlashgan daromad" yo'q</td><td>Serverga OCI qatorlarini qo'shish, saytda ko'rsatish</td><td class="mono">types/reporting.ts</td></tr>
-      <tr><td><span class="pill p-bad">Yuqori</span></td><td>Milliy 1-shakl va 2-shakl yo'q</td><td>"1-shakl, 2-shakl" bo'limidagi 3 qadam</td><td class="mono">pages/reports/</td></tr>
-      <tr><td><span class="pill p-warn">O'rta</span></td><td>Bosh sahifada "Pul": server qoldiqni bermasa, kirgan va chiqqan pul <b>qo'shib</b> ko'rsatiladi. Bu qoldiq emas</td><td>To'g'risi: boshlang'ich qoldiq + kirim − chiqim</td><td class="mono">dashboard/financialOverview.ts:53</td></tr>
-      <tr><td><span class="pill p-warn">O'rta</span></td><td>Daromad va xarajat schyot kodining boshlanishi bo'yicha topiladi (<code>IFRS.REV</code>, <code>IFRS.EXP</code> …). Kodlar boshqacha bo'lsa, bosh sahifada 0 chiqadi</td><td>Schyot turini (daromad/xarajat) serverdan olish</td><td class="mono">dashboard/financialOverview.ts:95</td></tr>
-      <tr><td><span class="pill p-warn">O'rta</span></td><td>O'zbek tilida hisobot nomlari inglizcha qolgan</td><td>Tarjima qilish</td><td class="mono">lib/locales/uz.ts:693</td></tr>
-      <tr><td><span class="pill p-gray">Past</span></td><td>Hisobot sahifasidagi ba'zi xabarlar faqat ruscha</td><td>Tarjima kalitlariga o'tkazish</td><td class="mono">reports/ReportsPage.tsx</td></tr>
-      <tr><td><span class="pill p-gray">Past</span></td><td>Pul oqimlari hisobotining usuli noma'lum</td><td>Serverda tekshirish, hisobotda usulni yozib qo'yish</td><td class="mono">backend</td></tr>
+      <tr><td class="mono">IAS 7</td><td>Bosh sahifadagi "Pul" kartochkasida kassaga kirgan va chiqqan pul <b>qo'shib</b> ko'rsatilardi. 900 kirib, 300 chiqsa, "Pul: 1 200" chiqardi, aslida 600 qolgan</td><td>Kassa va bank schyotlarining haqiqiy qoldig'i ko'rsatiladi. Ma'lumot bo'lmasa, noto'g'ri raqam o'rniga "—" chiqadi</td><td class="mono">dashboard/financialOverview.ts</td></tr>
+      <tr><td class="mono">IAS 21</td><td>Hisobot surati (snapshot) har doim <b>so'mda (UZS)</b> yaratilardi, korxona hisobotni dollarda bersa ham</td><td>Korxonaning taqdim etish valyutasi olinadi va hisobot sahifasida ko'rsatiladi</td><td class="mono">reports/ReportsPage.tsx</td></tr>
+      <tr><td class="mono">IAS 1.81A</td><td>Foyda-zarar hisobotida "Davr foydasi" yakuniy qatori ham, OCI ham ko'rinmasdi. Foydalanuvchi hisobot to'liq emasligini bilmasdi</td><td>"Davr foydasi" qatori chiqadi. Server OCI yuborsa, "Boshqa umumlashgan daromad" va "Jami umumlashgan daromad" qatorlari chiqadi. Yubormasa, sariq ogohlantirish chiqadi</td><td class="mono">reports/Ias1LineItemTable.tsx</td></tr>
+      <tr><td class="mono">—</td><td>O'zbek tilida hisobot nomlari inglizcha edi ("Statement of Financial Position")</td><td>"Moliyaviy holat to'g'risidagi hisobot (balans)" va h.k.</td><td class="mono">lib/locales/uz.ts</td></tr>
+      <tr><td class="mono">—</td><td>Kapital hisobotida va AOS ustunlarida inglizcha so'zlar ("Opening", "Net profit", "Turnover Dr")</td><td>O'zbekcha: "Davr boshiga", "Sof foyda", "Aylanma Dt"</td><td class="mono">lib/locales/uz.ts</td></tr>
+      <tr><td class="mono">—</td><td>Hisobot sahifasidagi 14 ta xabar faqat ruscha edi</td><td>Uch tilda (o'zbek, rus, ingliz)</td><td class="mono">reports/ReportsPage.tsx</td></tr>
     </tbody>
   </table>
   </div>
-  <div class="xulosa"><p>Ikkita katta ish bor (OCI qatori va 1-, 2-shakl) hamda bir nechta kichik tuzatish. Kichiklari bir-ikki kunlik ish, kattalari server tomonda ham o'zgarish talab qiladi.</p></div>
+  <p style="font-size:14px;color:var(--muted)">Tekshiruv: yangi testlar yozildi, lint toza, build muvaffaqiyatli. Kod <code>claude/ifrs-compliance-fixes</code> tarmog'ida.</p>
+
+  <h3>Hali qolgan kamchiliklar</h3>
+  <div class="tblbox">
+  <table class="tbl">
+    <thead><tr><th>Muhimligi</th><th>Kamchilik</th><th>Nega muhim</th><th>Kim tuzatadi</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill p-bad">Yuqori</span></td><td><b>OCI hisoblanmaydi</b> (IAS 1.81A)</td><td>Qayta baholash, valyuta farqi kabi summalar hisobotda ko'rinmaydi. Sayt endi buni ogohlantiradi, lekin raqamni server hisoblashi kerak</td><td>Server</td></tr>
+      <tr><td><span class="pill p-bad">Yuqori</span></td><td><b>1-shakl va 2-shakl yo'q</b></td><td>Davlatga topshiriladigan milliy hisobotlarni saytdan chiqarib bo'lmaydi</td><td>Server + sayt</td></tr>
+      <tr><td><span class="pill p-warn">O'rta</span></td><td><b>Pul oqimlari usuli noma'lum</b> (IAS 7.18)</td><td>To'g'ridan-to'g'ri yoki bilvosita usul hisobotda yozilishi shart</td><td>Server</td></tr>
+      <tr><td><span class="pill p-warn">O'rta</span></td><td><b>Bosh sahifada daromad/xarajat schyot nomi bo'yicha topiladi</b></td><td>Schyot kodlari <code>IFRS.REV</code>, <code>IFRS.EXP</code> dan boshqacha bo'lsa, bosh sahifada 0 chiqadi</td><td>Server (schyot turini yuborishi)</td></tr>
+      <tr><td><span class="pill p-warn">O'rta</span></td><td><b>Kapital hisobotini PDF qilib bo'lmaydi</b></td><td>Faqat Excel va CSV. Auditorlar odatda PDF so'raydi</td><td>Server</td></tr>
+      <tr><td><span class="pill p-warn">O'rta</span></td><td><b>19 ta avtomatik test yiqiladi</b> (bank, operatsiyalar, sud ishlari bo'limlari)</td><td>Bu eski muammo, yangi tuzatishlarga aloqasi yo'q. Lekin testlar ishlamasa, keyingi xatolar sezilmay qoladi</td><td>Sayt</td></tr>
+      <tr><td><span class="pill p-gray">Past</span></td><td><b>IAS 33, IFRS 5, IAS 40, IAS 34</b> modullari yo'q</td><td>Faqat korxonada shunday holat bo'lsa kerak: birjadagi aksiyalar, sotishga qo'yilgan mulk, ijaraga berilgan mulk, choraklik hisobot</td><td>Server + sayt</td></tr>
+      <tr><td><span class="pill p-gray">Past</span></td><td><b>Ba'zi ekranlarda matn hali ruscha yozilgan</b></td><td>Avtomatik tarjimon ishlaydi, lekin yangi matnlar tarjima kalitlari orqali yozilishi kerak</td><td>Sayt</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="xulosa"><p>Saytda tuzatsa bo'ladigan xatolar tuzatildi. Qolgan katta ishlar (OCI hisob-kitobi, 1- va 2-shakl, pul oqimi usuli) server tomonda bajarilishi kerak. Ular bajarilsa, sayt xalqaro standartga to'liq javob beradi.</p></div>
 </section>
 
 <!-- 10 -->
@@ -766,13 +786,13 @@ a{color:var(--accent)}
   </div>
   <h3>Navbat bilan nima qilish kerak</h3>
   <ol class="steps">
-    <li><span><b>Foyda hisobotiga OCI qatorini qo'shish.</b> Usiz hisobot IFRS ga to'liq mos emas. Server va sayt birga o'zgaradi.</span></li>
+    <li><span><b>Serverda OCI ni hisoblash.</b> Sayt tayyor: server <code>ociLineItems</code> yuborishi bilan qatorlar avtomatik chiqadi.</span></li>
     <li><span><b>1-shakl va 2-shaklni qo'shish</b>, agar mijozlar davlatga hisobotni shu saytdan topshirmoqchi bo'lsa.</span></li>
-    <li><span><b>Bosh sahifadagi "Pul" xatosini tuzatish.</b> Kichik ish, bir kunlik.</span></li>
-    <li><span><b>O'zbekcha tarjimani to'ldirish:</b> hisobot nomlari va ruscha qolgan xabarlar.</span></li>
+    <li><span><b>Pul oqimlari usulini</b> hisobotda ko'rsatish va kapital hisobotiga PDF qo'shish.</span></li>
+    <li><span><b>19 ta eski yiqilayotgan testni tuzatish.</b></span></li>
     <li><span><b>Serverni tekshirish:</b> pul oqimlari hisobotining usuli va raqamlar to'g'ri hisoblanishi.</span></li>
   </ol>
-  <div class="xulosa"><p>Sayt yaxshi qurilgan va xalqaro hisobot uchun tayyorga yaqin. Ikkita katta va bir nechta kichik ish qoldi. Ular bajarilsa, sayt IFRS ga to'liq javob beradi.</p></div>
+  <div class="xulosa"><p>Sayt yaxshi qurilgan va xalqaro hisobot uchun tayyorga yaqin. Saytning o'zidagi xatolar tuzatildi. Qolgan asosiy ishlar server tomonda.</p></div>
 </section>
 
 <!-- 11 -->
