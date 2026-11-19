@@ -129,6 +129,23 @@ dl.gloss dd{font-size:15px}
 .steps{counter-reset:s;list-style:none;padding:0;margin:12px 0;display:grid;gap:10px;max-width:80ch}
 .steps li{counter-increment:s;display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start}
 .steps li::before{content:counter(s);display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:13px}
+.xulosa{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start;background:var(--surface);border:1px solid var(--accent);border-radius:10px;padding:14px 16px;margin:22px 0 8px;max-width:80ch}
+.xulosa::before{content:"Oddiy qilib aytganda";grid-column:1/-1;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.xulosa p{grid-column:1/-1;margin:0;font-size:16px}
+.tldr{background:var(--surface);border:2px solid var(--accent);border-radius:12px;padding:18px 20px;margin-top:20px;max-width:80ch}
+.tldr h2{font-size:20px;margin-bottom:10px}
+.tldr ul{margin:0;padding-left:20px;display:grid;gap:6px}
+.story{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0;max-width:80ch}
+.story .t{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--nsbu);margin-bottom:6px}
+.vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}
+.vs .card h4{font-size:14px}
+.vs .card.n{border-color:var(--nsbu)} .vs .card.n h4{color:var(--nsbu)}
+.vs .card.i{border-color:var(--accent)} .vs .card.i h4{color:var(--accent)}
+details.faq{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:0;margin:8px 0;max-width:82ch}
+details.faq summary{cursor:pointer;padding:12px 16px;font-weight:600;list-style-position:inside}
+details.faq div{padding:0 16px 14px;color:var(--fg)}
+details.faq div p{margin:0}
+@media (max-width:560px){.vs{grid-template-columns:minmax(0,1fr)}}
 footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 .themebtn{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:8px;padding:6px 10px;cursor:pointer;margin-top:14px}
 
@@ -158,16 +175,19 @@ a{color:var(--accent)}
   <ol>
     <li><a href="#kimga"><span>0</span>Kim nimani o'qisin</a></li>
     <li><a href="#nima"><span>1</span>Sayt nima qiladi</a></li>
-    <li><a href="#lugat"><span>2</span>Lug'at</a></li>
-    <li><a href="#oqim"><span>3</span>Qanday ishlaydi</a></li>
-    <li><a href="#ekran"><span>4</span>Ekran tuzilishi</a></li>
-    <li><a href="#katalog"><span>5</span>Barcha sahifalar</a></li>
-    <li><a href="#kirim"><span>6</span>Kirim va chiqim</a></li>
-    <li><a href="#shakl"><span>7</span>1-shakl, 2-shakl</a></li>
-    <li><a href="#ifrs"><span>8</span>IFRS ga mosligi</a></li>
-    <li><a href="#muammo"><span>9</span>Kamchiliklar</a></li>
-    <li><a href="#oy"><span>10</span>Oy yopish tartibi</a></li>
-    <li><a href="#dev"><span>11</span>Dasturchilar uchun</a></li>
+    <li><a href="#asos"><span>2</span>Buxgalteriya oddiy tilda</a></li>
+    <li><a href="#lugat"><span>3</span>Lug'at</a></li>
+    <li><a href="#oqim"><span>4</span>Qanday ishlaydi</a></li>
+    <li><a href="#ekran"><span>5</span>Ekran tuzilishi</a></li>
+    <li><a href="#katalog"><span>6</span>Barcha sahifalar</a></li>
+    <li><a href="#kirim"><span>7</span>Kirim va chiqim</a></li>
+    <li><a href="#shakl"><span>8</span>1-shakl, 2-shakl</a></li>
+    <li><a href="#ifrs"><span>9</span>IFRS misollar bilan</a></li>
+    <li><a href="#muammo"><span>10</span>Kamchiliklar</a></li>
+    <li><a href="#oy"><span>11</span>Oy yopish tartibi</a></li>
+    <li><a href="#savol"><span>12</span>Savol-javob</a></li>
+    <li><a href="#xulosa"><span>13</span>Umumiy xulosa</a></li>
+    <li><a href="#dev"><span>14</span>Dasturchilar uchun</a></li>
   </ol>
   <button class="themebtn" id="themebtn" type="button">Tungi / kunduzgi rejim</button>
 </nav>
@@ -178,6 +198,16 @@ a{color:var(--accent)}
   <h1>UzAssets IFRS sayti: nima qayerda va qanday ishlaydi</h1>
   <p class="lead">Bu qo'llanma saytni birinchi marta ko'rayotgan har bir kishi uchun: buxgalter, rahbar, auditor va dasturchi. Hamma narsa oddiy so'zlar va rasmlar bilan tushuntirilgan.</p>
   <p style="font-size:13.5px;color:var(--muted)">Holat: 2026-yil 19-noyabr. Saytda 106 ta sahifa papkasi va 163 ta manzil bor. Bu qo'llanma saytning ko'rinadigan qismi (frontend) asosida yozilgan. Hisob-kitoblar serverda (backend) bajariladi.</p>
+  <div class="tldr">
+    <h2>Bir daqiqada xulosa</h2>
+    <ul>
+      <li><b>Sayt nima?</b> Korxonaning O'zbekiston qoidasidagi buxgalteriyasini xalqaro (IFRS) qoidaga "tarjima" qiladigan dastur.</li>
+      <li><b>Nima uchun kerak?</b> Chet el investori, xalqaro bank va auditor hisobotni faqat IFRS bo'yicha qabul qiladi.</li>
+      <li><b>IFRS ga mosmi?</b> Asosan ha. Majburiy hisobotlar bor, tekshirilgan 26 ta IFRS qoidasidan 21 tasi saytda bor.</li>
+      <li><b>Nima yetishmaydi?</b> (1) Foyda hisobotida "boshqa daromad" (OCI) qatori. (2) Davlatga topshiriladigan 1-shakl va 2-shakl. (3) Bosh sahifadagi "Pul" raqamida bitta xato.</li>
+      <li><b>Kirim-chiqim bormi?</b> Ha: daromad, xarajat, foyda, kassa, bank, qarzlar, to'lov kalendari.</li>
+    </ul>
+  </div>
 </header>
 
 <!-- 0 -->
@@ -185,10 +215,10 @@ a{color:var(--accent)}
   <div class="secnum">0</div>
   <h2>Kim nimani o'qisin</h2>
   <div class="grid4">
-    <div class="card who"><span class="ic">Buxgalter</span><p>Har kuni qaysi sahifada ishlash, kirim-chiqim qayerda.</p><a href="#ekran">4</a><a href="#kirim">6</a><a href="#oy">10</a></div>
-    <div class="card who"><span class="ic">Rahbar</span><p>Sayt nima beradi, IFRS ga mosmi, nima yetishmaydi.</p><a href="#nima">1</a><a href="#ifrs">8</a><a href="#muammo">9</a></div>
-    <div class="card who"><span class="ic">Auditor</span><p>Hisobot qanday tasdiqlanadi, qaysi standartlar bor.</p><a href="#oqim">3</a><a href="#ifrs">8</a></div>
-    <div class="card who"><span class="ic">Dasturchi</span><p>Qaysi sahifa qaysi faylda, yangi sahifa qanday qo'shiladi.</p><a href="#katalog">5</a><a href="#dev">11</a></div>
+    <div class="card who"><span class="ic">Buxgalteriyani bilmaydigan</span><p>Avval asoslarni oddiy misolda o'qing.</p><a href="#asos">Buxgalteriya oddiy tilda</a><a href="#lugat">Lug'at</a><a href="#savol">Savol-javob</a></div>
+    <div class="card who"><span class="ic">Saytdan foydalanuvchi</span><p>Qaysi sahifada nima qilinadi.</p><a href="#ekran">Ekran tuzilishi</a><a href="#katalog">Barcha sahifalar</a><a href="#oy">Oy yopish tartibi</a></div>
+    <div class="card who"><span class="ic">Rahbar</span><p>Sayt IFRS ga mosmi, nima yetishmaydi.</p><a href="#ifrs">IFRS misollar bilan</a><a href="#muammo">Kamchiliklar</a><a href="#xulosa">Umumiy xulosa</a></div>
+    <div class="card who"><span class="ic">Dasturchi</span><p>Qaysi sahifa qaysi faylda.</p><a href="#katalog">Barcha sahifalar</a><a href="#dev">Dasturchilar uchun</a></div>
   </div>
 </section>
 
@@ -198,18 +228,89 @@ a{color:var(--accent)}
   <h2>Sayt nima qiladi</h2>
   <p>Korxona o'z hisobini O'zbekiston milliy standarti (<b>BHMS</b>, 1C dagi kabi) bo'yicha yuritadi. Lekin chet el investorlari, banklar va xalqaro auditorlar hisobotni <b>IFRS</b> (xalqaro standart) bo'yicha talab qiladi.</p>
   <p>Bu sayt ikkalasini birga yuritadi. Milliy hisobdagi ma'lumotni oladi, IFRS qoidalariga moslab qayta guruhlaydi, kerakli tuzatishlarni qo'shadi va tayyor xalqaro hisobotlarni chiqaradi. Buni <b>parallel hisob</b> deyiladi.</p>
+  <div class="story">
+    <div class="t">Tushunish uchun o'xshatish</div>
+    <p style="margin:0">Tasavvur qiling, sizda o'zbek tilida yozilgan kitob bor. Uni chet ellik o'qishi kerak. Shunchaki so'zma-so'z tarjima yetmaydi: ba'zi iboralarni boshqacha aytish, ba'zi narsalarni izohlash kerak. Sayt xuddi shu ishni buxgalteriya bilan qiladi: <b>o'zbekcha hisob (BHMS) → xalqaro hisob (IFRS)</b>.</p>
+  </div>
   <h3>Qisqa baho</h3>
   <div class="grid2">
     <div class="card"><h4><span class="pill p-ok">Bor</span> IFRS ning asosiy hisobotlari</h4><p>Balans (moliyaviy holat), foyda-zarar, pul oqimlari, kapital o'zgarishi va izohlar. Hammasida o'tgan davr bilan solishtirish bor.</p></div>
-    <div class="card"><h4><span class="pill p-ok">Bor</span> 20 dan ortiq IFRS moduli</h4><p>Asosiy vositalar, ijara, kreditlar, rezervlar, soliq, valyuta, konsolidatsiya va boshqalar (8-bo'lim).</p></div>
-    <div class="card"><h4><span class="pill p-warn">Qisman</span> Kirim-chiqim</h4><p>Daromad, xarajat, foyda, kassa va bank bor. Bosh sahifadagi "Pul" ko'rsatkichida bitta xato bor (9-bo'lim).</p></div>
-    <div class="card"><h4><span class="pill p-bad">Yo'q</span> 1-shakl va 2-shakl</h4><p>Milliy "Buxgalteriya balansi" va "Moliyaviy natijalar" hisobotlari uchun sahifa yo'q (7-bo'lim).</p></div>
+    <div class="card"><h4><span class="pill p-ok">Bor</span> 20 dan ortiq IFRS moduli</h4><p>Asosiy vositalar, ijara, kreditlar, rezervlar, soliq, valyuta, konsolidatsiya va boshqalar.</p></div>
+    <div class="card"><h4><span class="pill p-warn">Qisman</span> Kirim-chiqim</h4><p>Daromad, xarajat, foyda, kassa va bank bor. Bosh sahifadagi "Pul" ko'rsatkichida bitta xato bor.</p></div>
+    <div class="card"><h4><span class="pill p-bad">Yo'q</span> 1-shakl va 2-shakl</h4><p>Milliy "Buxgalteriya balansi" va "Moliyaviy natijalar" hisobotlari uchun sahifa yo'q.</p></div>
   </div>
+  <div class="xulosa"><p>Sayt — buxgalteriya "tarjimoni". Korxona hisobini xalqaro tilga o'giradi. Ishning katta qismi tayyor, uchta narsa qo'shilishi kerak.</p></div>
+</section>
+
+<!-- 2 asos -->
+<section id="asos">
+  <div class="secnum">2</div>
+  <h2>Buxgalteriya oddiy tilda</h2>
+  <p>Buxgalteriyani bilmasangiz, shu bo'limdan boshlang. Hammasini bitta kichik non do'koni misolida ko'ramiz.</p>
+
+  <div class="story">
+    <div class="t">Misol: Dilshod akaning non do'koni</div>
+    <p style="margin:0">Dilshod aka 45 mln so'm o'z pulini qo'ydi va bankdan 20 mln kredit oldi. Shu pulga 50 mln ga pech, 5 mln ga un oldi. Kassada 10 mln qoldi. Bir oy ishladi.</p>
+  </div>
+
+  <h3>1. Balans — "Menda nima bor va u qayerdan keldi?"</h3>
+  <p>Balans bitta kunga olingan surat. Chap tomonda korxonada <b>nima bor</b> (aktivlar). O'ng tomonda bu narsalar <b>kimning pulidan</b> olingan: qarz (majburiyatlar) yoki egasining o'z puli (kapital). Ikki tomon <b>doim teng</b> bo'ladi, xuddi tarozi kabi.</p>
+  <figure class="figure">
+    <div class="scroll">
+    <svg viewBox="0 0 760 270" width="760" height="270" role="img" aria-label="Balans tarozisi: aktivlar 65 mln, majburiyat 20 mln va kapital 45 mln" style="display:block">
+      <g style="font-size:13px">
+        <polygon points="380,236 360,262 400,262" style="fill:var(--muted)"/>
+        <rect x="376" y="40" width="8" height="196" style="fill:var(--muted)"/>
+        <rect x="70" y="36" width="620" height="8" rx="4" style="fill:var(--muted)"/>
+        <text x="380" y="24" text-anchor="middle" style="fill:var(--fg);font-weight:700">65 = 65</text>
+
+        <line x1="200" y1="44" x2="200" y2="64" style="stroke:var(--muted)"/>
+        <rect x="60" y="64" width="280" height="160" rx="10" style="fill:var(--accent-soft);stroke:var(--accent)"/>
+        <text x="200" y="88" text-anchor="middle" style="fill:var(--accent);font-weight:700">NIMA BOR (aktiv)</text>
+        <text x="80" y="118" style="fill:var(--fg)">Pech</text><text x="320" y="118" text-anchor="end" style="fill:var(--fg)">50 mln</text>
+        <text x="80" y="144" style="fill:var(--fg)">Un</text><text x="320" y="144" text-anchor="end" style="fill:var(--fg)">5 mln</text>
+        <text x="80" y="170" style="fill:var(--fg)">Kassadagi pul</text><text x="320" y="170" text-anchor="end" style="fill:var(--fg)">10 mln</text>
+        <line x1="80" y1="184" x2="320" y2="184" style="stroke:var(--line)"/>
+        <text x="80" y="208" style="fill:var(--fg);font-weight:700">Jami</text><text x="320" y="208" text-anchor="end" style="fill:var(--fg);font-weight:700">65 mln</text>
+
+        <line x1="560" y1="44" x2="560" y2="64" style="stroke:var(--muted)"/>
+        <rect x="420" y="64" width="280" height="160" rx="10" style="fill:var(--nsbu-soft);stroke:var(--nsbu)"/>
+        <text x="560" y="88" text-anchor="middle" style="fill:var(--nsbu);font-weight:700">QAYERDAN KELDI</text>
+        <text x="440" y="118" style="fill:var(--fg)">Bank krediti (majburiyat)</text><text x="680" y="118" text-anchor="end" style="fill:var(--fg)">20 mln</text>
+        <text x="440" y="144" style="fill:var(--fg)">O'z puli (kapital)</text><text x="680" y="144" text-anchor="end" style="fill:var(--fg)">45 mln</text>
+        <line x1="440" y1="184" x2="680" y2="184" style="stroke:var(--line)"/>
+        <text x="440" y="208" style="fill:var(--fg);font-weight:700">Jami</text><text x="680" y="208" text-anchor="end" style="fill:var(--fg);font-weight:700">65 mln</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption>Saytda bu hisobot "Moliyaviy holat to'g'risida hisobot" deb ataladi. Milliy hisobda unga 1-shakl o'xshaydi.</figcaption>
+  </figure>
+
+  <h3>2. Foyda va zarar — "Bir oyda qancha ishladim?"</h3>
+  <p>Oy davomida Dilshod aka 30 mln ga non sotdi. Un, ish haqi va svetga 24 mln ketdi. Demak foyda 6 mln. <b>Daromad − xarajat = foyda.</b> Xarajat ko'p bo'lsa, natija minus chiqadi va u zarar deyiladi.</p>
+
+  <h3>3. Pul oqimi — "Kassamda pul nega kam?"</h3>
+  <p>Foyda 6 mln, lekin kassaga atigi 2 mln qo'shildi. Sababi: bitta kafe 4 mln lik nonni qarzga oldi va hali to'lamadi. <b>Foyda va pul bir xil narsa emas.</b> Shuning uchun alohida "Pul oqimlari" hisoboti bor: u pul qayerdan kirib, qayerga chiqqanini ko'rsatadi.</p>
+
+  <h3>4. Provodka — "Har bir operatsiya ikki joyga yoziladi"</h3>
+  <p>Dilshod aka 5 mln ga un oldi. Bunda ikkita narsa o'zgaradi: un 5 mln ga <b>ko'paydi</b>, pul 5 mln ga <b>kamaydi</b>. Buxgalter buni bitta yozuvga yozadi. Shu yozuv <b>provodka</b> deyiladi. Bir tomoni "debet", ikkinchisi "kredit". Ikki tomon doim teng bo'lgani uchun balans tarozisi buzilmaydi.</p>
+  <div class="formula"><span class="k">Debet</span>  "Un" schyoti    + 5 mln   <span class="c">← nima ko'paydi</span>
+<span class="k">Kredit</span> "Kassa" schyoti − 5 mln   <span class="c">← nima kamaydi</span></div>
+
+  <h3>5. BHMS va IFRS farqi — bitta misolda</h3>
+  <p>Dilshod aka do'kon binosini 5 yilga ijaraga oldi, har oy 1 mln to'laydi.</p>
+  <div class="vs">
+    <div class="card n"><h4>Milliy hisob (BHMS)</h4><p>Har oy 1 mln xarajat yoziladi. Balansda ijara ko'rinmaydi, go'yo korxonada qarz yo'qdek.</p></div>
+    <div class="card i"><h4>Xalqaro hisob (IFRS 16)</h4><p>5 yil davomida 60 mln to'lash majburiyati bor. Shuning uchun balansga "ijaradagi bino" (aktiv) va "ijara qarzi" (majburiyat) yoziladi. Investor korxonaning haqiqiy majburiyatlarini ko'radi.</p></div>
+  </div>
+  <p>Mana shu farqlarni topib, tuzatib chiqish — saytning asosiy ishi.</p>
+
+  <div class="xulosa"><p>Uchta asosiy hisobot bor. <b>Balans</b> — nima bor va kimga qarzmiz. <b>Foyda-zarar</b> — qancha ishladik. <b>Pul oqimi</b> — pul qayerdan keldi, qayerga ketdi. IFRS ham xuddi shu hisobotlar, faqat qoidalari qat'iyroq va haqiqatga yaqinroq.</p></div>
 </section>
 
 <!-- 2 -->
 <section id="lugat">
-  <div class="secnum">2</div>
+  <div class="secnum">3</div>
   <h2>Lug'at: so'zlarning ma'nosi</h2>
   <p>Qo'llanmada va saytda uchraydigan so'zlar. Qavs ichida ruscha yoki inglizcha nomi.</p>
   <dl class="gloss">
@@ -220,23 +321,38 @@ a{color:var(--accent)}
     <dt>Provodka</dt><dd>Bitta xo'jalik operatsiyasining yozuvi: qaysi schyot debet, qaysi schyot kredit, qancha summa.</dd>
     <dt>Bosh kitob (Главная книга)</dt><dd>Barcha provodkalar yig'ilgan asosiy daftar.</dd>
     <dt>AOS (ОСВ)</dt><dd>Aylanma-saldo qaydnomasi: har bir schyot bo'yicha boshlang'ich qoldiq, oy davomidagi aylanma va oxirgi qoldiq.</dd>
-    <dt>Mapping (moslashtirish)</dt><dd>Milliy schyotni IFRS schyotiga bog'lash qoidasi. Masalan: "0100 Asosiy vositalar" → "IFRS.PPE".</dd>
-    <dt>Qayta tasniflash</dt><dd>Summani o'zgartirmasdan boshqa IFRS qatoriga o'tkazish.</dd>
-    <dt>Tuzatish (корректировка)</dt><dd>IFRS talabi bo'yicha summani o'zgartiradigan qo'shimcha provodka. Masalan, ijara uchun aktiv va majburiyat qo'shish.</dd>
-    <dt>Snapshot (снимок)</dt><dd>Hisobotning muzlatilgan nusxasi. Keyin raqamlar o'zgarsa ham, tasdiqlangan nusxa o'zgarmaydi.</dd>
-    <dt>OCI</dt><dd>Boshqa umumlashgan daromad. Foyda-zararga kirmaydigan, lekin kapitalni o'zgartiradigan summalar: qayta baholash, valyuta farqi va h.k.</dd>
-    <dt>Konsolidatsiya</dt><dd>Bir guruhdagi bir nechta korxona hisobotini bitta umumiy hisobotga birlashtirish.</dd>
-    <dt>Eliminatsiya</dt><dd>Konsolidatsiyada guruh ichidagi o'zaro savdo va qarzlarni olib tashlash.</dd>
+    <dt>Schyot (счёт)</dt><dd>Bir turdagi narsalar yoziladigan "quti". Masalan, "Kassa" schyoti, "Un" schyoti, "Bank krediti" schyoti. Har birining raqami bor (0100, 5010 …).</dd>
+    <dt>Debet / Kredit</dt><dd>Provodkaning ikki tomoni. Oddiy qilib: debet — "qayerga keldi", kredit — "qayerdan ketdi".</dd>
+    <dt>Aktiv</dt><dd>Korxonaga tegishli va foyda keltiradigan narsa: pul, tovar, bino, mijozlarning qarzi.</dd>
+    <dt>Majburiyat</dt><dd>Korxonaning boshqalarga qarzi: bank krediti, yetkazib beruvchiga qarz, soliq.</dd>
+    <dt>Kapital</dt><dd>Egalarning o'z puli va yig'ilgan foyda. Aktivdan majburiyatni ayirsangiz, kapital qoladi.</dd>
+    <dt>Amortizatsiya (eskirish)</dt><dd>Uskuna narxini bir martada emas, ishlagan yillariga bo'lib xarajatga yozish. 50 mln lik pech 10 yil ishlasa, har yili 5 mln.</dd>
+    <dt>Mapping (moslashtirish)</dt><dd>Milliy schyotni IFRS schyotiga bog'lash qoidasi, xuddi lug'atdagi "so'z → tarjima" kabi. Masalan: "0100 Asosiy vositalar" → "IFRS asosiy vositalar".</dd>
+    <dt>Qayta tasniflash</dt><dd>Summani o'zgartirmasdan, boshqa qatorga o'tkazish. Kitobni boshqa javonga qo'ygandek: kitob o'sha, joyi boshqa.</dd>
+    <dt>Tuzatish (корректировка)</dt><dd>IFRS talabi bo'yicha summani o'zgartiradigan qo'shimcha provodka. Masalan, ijara uchun aktiv va majburiyat qo'shish (yuqoridagi do'kon misoli).</dd>
+    <dt>Snapshot (снимок)</dt><dd>Hisobotning muzlatilgan nusxasi, xuddi suratga olgandek. Keyin raqamlar o'zgarsa ham, tasdiqlangan surat o'zgarmaydi.</dd>
+    <dt>OCI</dt><dd>Boshqa umumlashgan daromad. Korxona boyidi, lekin sotishdan emas. Masalan, pech bozorda qimmatlashdi va qiymati 10 mln oshdi. Bu oddiy foydaga qo'shilmaydi, alohida "boshqa daromad" qatoriga yoziladi.</dd>
+    <dt>Konsolidatsiya</dt><dd>Bir egasi bor bir nechta korxona hisobotini bitta umumiy hisobotga birlashtirish, go'yo ular bitta katta korxonadek.</dd>
+    <dt>Eliminatsiya</dt><dd>Guruh ichidagi o'zaro savdoni olib tashlash. Ota do'koni o'g'il do'koniga 10 mln ga non sotsa, guruh uchun bu sotuv emas: pul cho'ntakdan cho'ntakka o'tdi, xolos.</dd>
+    <dt>Rezerv</dt><dd>Kelajakda bo'lishi aniq bo'lgan xarajat uchun oldindan ajratilgan summa. Masalan, korxona sudda yutqazishi mumkin bo'lsa, jarimani oldindan rezervga yozadi.</dd>
     <dt>Kontragent</dt><dd>Mijoz yoki yetkazib beruvchi: korxona kim bilan ishlasa.</dd>
     <dt>Frontend / backend</dt><dd>Frontend — brauzerda ko'rinadigan qism (shu qo'llanma tasvirlaydi). Backend — serverdagi qism, hisob-kitobni shu bajaradi.</dd>
   </dl>
+  <div class="xulosa"><p>Qolgan bo'limlarda notanish so'z uchrasa, shu ro'yxatga qayting.</p></div>
 </section>
 
 <!-- 3 -->
 <section id="oqim">
-  <div class="secnum">3</div>
+  <div class="secnum">4</div>
   <h2>Qanday ishlaydi: 5 qadam</h2>
   <p>Ma'lumot chapdan o'ngga yuradi. Binafsha rang — milliy hisob, yashil — IFRS.</p>
+  <ol class="steps">
+    <li><span><b>Kiritish.</b> Buxgalter hujjatlarni kiritadi yoki 1C dan tayyor faylni yuklaydi.</span></li>
+    <li><span><b>Yig'ish.</b> Hamma operatsiyalar bosh kitobga yoziladi va milliy AOS hosil bo'ladi.</span></li>
+    <li><span><b>Tarjima.</b> Har bir milliy schyot IFRS schyotiga bog'lanadi (moslashtirish).</span></li>
+    <li><span><b>Tuzatish.</b> IFRS boshqacha talab qiladigan joylar to'g'rilanadi: ijara, eskirish, rezervlar, soliq va h.k.</span></li>
+    <li><span><b>Hisobot.</b> Tayyor IFRS hisobotlari chiqadi, tasdiqlanadi va yuklab olinadi.</span></li>
+  </ol>
   <figure class="figure">
     <div class="scroll">
     <svg viewBox="0 0 1000 430" width="1000" height="430" role="img" aria-label="Milliy hisobdan IFRS hisobotigacha ma'lumot yo'li" style="display:block">
@@ -333,11 +449,12 @@ a{color:var(--accent)}
     </div>
     <figcaption>Hisobot sahifasida "Nazorat matritsasi: PASS" yozuvi chiqsa, balans tenglashgan (aktiv = majburiyat + kapital). "FAIL" bo'lsa, xato bor.</figcaption>
   </figure>
+  <div class="xulosa"><p>Ma'lumot kiritiladi → IFRS ga tarjima qilinadi → to'g'rilanadi → hisobot chiqadi → ikkinchi odam tekshirib tasdiqlaydi.</p></div>
 </section>
 
 <!-- 4 -->
 <section id="ekran">
-  <div class="secnum">4</div>
+  <div class="secnum">5</div>
   <h2>Ekran tuzilishi</h2>
   <p>Kirgandan keyin har bir sahifa bir xil ko'rinishda ochiladi. Raqamlar pastdagi izohlarga mos.</p>
   <figure class="figure">
@@ -373,11 +490,12 @@ a{color:var(--accent)}
     </div>
     <figcaption>Rasmdagi raqamlar namuna uchun.</figcaption>
   </figure>
+  <div class="xulosa"><p>Ish boshlashdan oldin ikkita narsani tanlang: tepada <b>korxonani</b>, sahifada <b>davrni</b> (oyni). Kerakli sahifani chap menyudan yoki Ctrl+K qidiruvidan toping.</p></div>
 </section>
 
 <!-- 5 -->
 <section id="katalog">
-  <div class="secnum">5</div>
+  <div class="secnum">6</div>
   <h2>Saytdagi barcha sahifalar</h2>
   <p>Saytning har bir sahifasi: menyudagi nomi, nima uchun kerakligi, brauzerdagi manzili va kodi qaysi papkada. Qidiruvga so'z yozing yoki guruhni tanlang.</p>
   <div class="tools">
@@ -395,11 +513,12 @@ a{color:var(--accent)}
     <div class="empty" id="empty" hidden>Hech narsa topilmadi. Boshqa so'z bilan qidiring.</div>
   </div>
   <p style="font-size:13.5px;color:var(--muted)">Manzil oldiga sayt domeni qo'shiladi. Kod papkasi <code>src/pages/</code> ichida.</p>
+  <div class="xulosa"><p>Biror ishni qayerda qilishni bilmasangiz, shu jadvalga oddiy so'z yozing: "kassa", "ish haqi", "ijara", "qarz".</p></div>
 </section>
 
 <!-- 6 -->
 <section id="kirim">
-  <div class="secnum">6</div>
+  <div class="secnum">7</div>
   <h2>Kirim va chiqim</h2>
   <p>Saytda "kirim-chiqim" ikki xil:</p>
   <ul class="plain">
@@ -456,12 +575,13 @@ a{color:var(--accent)}
     </div>
     <figcaption>Raqamlar faqat tushuntirish uchun, haqiqiy ma'lumot emas.</figcaption>
   </figure>
-  <div class="note">Bosh sahifadagi raqam — tezkor ko'rsatkich. Rasmiy raqam "IFRS hisobotlari → Foyda va zarar" da. Ikkalasi teng bo'lishi kerak. Farq bo'lsa, korxona schyotlar rejasidagi kodlar sayt kutgan nomlarga mos kelmayapti (9-bo'lim).</div>
+  <div class="note">Bosh sahifadagi raqam — tezkor ko'rsatkich. Rasmiy raqam "IFRS hisobotlari → Foyda va zarar" da. Ikkalasi teng bo'lishi kerak. Farq bo'lsa, korxona schyotlar rejasidagi kodlar sayt kutgan nomlarga mos kelmayapti ("Kamchiliklar" bo'limiga qarang).</div>
+  <div class="xulosa"><p>Qancha ishlab, qancha sarflaganingizni <b>Bosh sahifa</b> va <b>Foyda va zarar</b> hisobotidan ko'rasiz. Kassa va bankdagi pul harakati <b>Bank va kassa</b> sahifasida.</p></div>
 </section>
 
 <!-- 7 -->
 <section id="shakl">
-  <div class="secnum">7</div>
+  <div class="secnum">8</div>
   <h2>1-shakl va 2-shakl bormi?</h2>
   <p>O'zbekistonda soliq va statistika organlariga topshiriladigan ikkita asosiy milliy hisobot bor:</p>
   <ul class="plain">
@@ -507,13 +627,16 @@ a{color:var(--accent)}
     <li><span>Yo'q bo'lsa: milliy schyotlarni shakl qatorlariga (010, 020, 130 …) bog'lovchi jadval tuzish. Bu server ishi.</span></li>
     <li><span>Saytda "IFRS hisobotlari" sahifasiga ikkita yangi tur qo'shish: "1-shakl" va "2-shakl". Fayl: <code>src/pages/reports/ReportsPage.tsx</code>.</span></li>
   </ol>
+  <div class="xulosa"><p>1-shakl va 2-shakl hozir saytda yo'q. Xalqaro hisobot uchun ularning IFRS o'xshashlari bor, lekin davlatga topshirish uchun ularni alohida qo'shish kerak.</p></div>
 </section>
 
 <!-- 8 -->
 <section id="ifrs">
-  <div class="secnum">8</div>
-  <h2>IFRS ga mosligi</h2>
-  <p>IFRS bo'yicha to'liq hisobotlar to'plami (IAS 1 standarti) quyidagilardan iborat bo'lishi shart:</p>
+  <div class="secnum">9</div>
+  <h2>IFRS misollar bilan: saytda nima bor, nima yo'q</h2>
+  <p><b>IFRS</b> — bu bitta qoida emas, alohida mavzular bo'yicha qoidalar to'plami. Har bir qoida "IAS" yoki "IFRS" va raqam bilan ataladi. Masalan, "IFRS 16" — ijara qoidasi, "IAS 16" — asosiy vositalar qoidasi. Ularni yodlash shart emas: pastda har biri oddiy misol bilan tushuntirilgan.</p>
+  <h3>Birinchi: majburiy hisobotlar</h3>
+  <p>IFRS bo'yicha har bir korxona quyidagi hisobotlarni berishi shart (bu talab IAS 1 qoidasida):</p>
   <div class="tblbox">
   <table class="tbl">
     <thead><tr><th>Talab</th><th>Holat</th><th>Izoh</th></tr></thead>
@@ -529,53 +652,62 @@ a{color:var(--accent)}
   </table>
   </div>
 
-  <h3>Standartlar bo'yicha</h3>
+  <h3>OCI nima va nega muhim — misolda</h3>
+  <div class="story">
+    <div class="t">Dilshod akaning do'konida</div>
+    <p>Bir yilda non sotib 72 mln foyda qildi. Shu yili baholovchi pechni ko'rib, uning qiymati 10 mln ga oshganini aytdi. Dilshod aka 10 mln ga boyidi, lekin bu pul non sotishdan kelmagan.</p>
+    <p style="margin:0">IFRS buni shunday yozishni talab qiladi: <b>Davr foydasi 72 mln</b>, <b>Boshqa daromad (OCI) 10 mln</b>, <b>Jami umumlashgan daromad 82 mln</b>. Saytda hozir faqat birinchi qator bor. Shuning uchun hisobotni o'qigan odam 10 mln ni ko'rmaydi.</p>
+  </div>
+
+  <h3>Ikkinchi: mavzular bo'yicha qoidalar</h3>
+  <p>Har bir qatorda: qoida nima haqida, oddiy misol, saytdagi sahifa va holati.</p>
   <div class="tblbox">
   <table class="tbl">
-    <thead><tr><th>Standart</th><th>Oddiy so'z bilan</th><th>Sahifa</th><th>Holat</th></tr></thead>
+    <thead><tr><th>Qoida</th><th>Nima haqida</th><th>Oddiy misol</th><th>Sahifa</th><th>Holat</th></tr></thead>
     <tbody>
-      <tr><td class="mono">IFRS 1</td><td>IFRS ga birinchi marta o'tish</td><td class="mono">/ifrs1</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IAS 2</td><td>Tovar va materiallar zaxirasi</td><td class="mono">/inventory</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IAS 7</td><td>Pul oqimlari</td><td class="mono">/reports?report=cf</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IAS 8</td><td>Hisob siyosati, xatolarni tuzatish</td><td class="mono">/policies</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IAS 12</td><td>Foyda solig'i, kechiktirilgan soliq</td><td class="mono">/deferred-tax</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IAS 16</td><td>Asosiy vositalar (bino, uskuna)</td><td class="mono">/ppe</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IAS 19</td><td>Xodimlarga to'lovlar (ta'til, nafaqa)</td><td class="mono">/employee-benefits</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IAS 20</td><td>Davlat subsidiyalari</td><td class="mono">/government-grants</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IAS 21</td><td>Valyuta kurslari</td><td class="mono">/currencies</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IAS 24</td><td>Bog'liq tomonlar bilan operatsiyalar</td><td class="mono">/related-parties</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IAS 28</td><td>Sho'ba bo'lmagan korxonalardagi ulush</td><td class="mono">/consolidation/equity-method</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IAS 36</td><td>Aktivlar qadrsizlanishi</td><td class="mono">/cgu</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IAS 37</td><td>Rezervlar, sud ishlari</td><td class="mono">/provisions</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IAS 38</td><td>Nomoddiy aktivlar (dastur, litsenziya)</td><td class="mono">/intangible-assets</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IFRS 6</td><td>Foydali qazilmalarni qidirish</td><td class="mono">/mining-ifrs6</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IFRS 8</td><td>Faoliyat segmentlari</td><td class="mono">/segments</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IFRS 9</td><td>Moliyaviy instrumentlar, kredit zarari (ECL)</td><td class="mono">/financial-instruments, /ecl</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IFRS 10</td><td>Guruh hisobotini birlashtirish</td><td class="mono">/consolidation</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IFRS 15</td><td>Shartnomalar bo'yicha tushum</td><td class="mono">/revenue/contracts</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IFRS 16</td><td>Ijara</td><td class="mono">/leases</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IFRS 18</td><td>Rahbariyat ko'rsatkichlari (2027-yildan)</td><td class="mono">/mpms</td><td><span class="pill p-ok">Bor</span></td></tr>
-      <tr><td class="mono">IAS 29</td><td>Giperinflyatsiya</td><td class="mono">—</td><td><span class="pill p-warn">Faqat eslatma</span></td></tr>
-      <tr><td class="mono">IAS 33</td><td>Bir aksiyaga foyda</td><td class="mono">—</td><td><span class="pill p-bad">Yo'q</span></td></tr>
-      <tr><td class="mono">IFRS 5</td><td>Sotishga mo'ljallangan aktivlar</td><td class="mono">—</td><td><span class="pill p-bad">Yo'q</span></td></tr>
-      <tr><td class="mono">IAS 40</td><td>Ijaraga beriladigan mulk</td><td class="mono">—</td><td><span class="pill p-bad">Yo'q</span></td></tr>
-      <tr><td class="mono">IAS 34</td><td>Oraliq (choraklik) hisobot</td><td class="mono">—</td><td><span class="pill p-bad">Yo'q</span></td></tr>
+      <tr><td class="mono">IFRS 1</td><td>IFRS ga birinchi marta o'tish</td><td>Korxona shu yil birinchi marta xalqaro hisobot tayyorlayapti. Boshlang'ich balansni IFRS bo'yicha qayta hisoblash kerak</td><td class="mono">/ifrs1</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 2</td><td>Ombordagi tovar va materiallar</td><td>Omborda 100 mln lik un bor, lekin narx tushib, endi 80 mln ga sotiladi. Hisobda 80 mln deb ko'rsatish kerak</td><td class="mono">/inventory</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 7</td><td>Pul oqimlari</td><td>Kassa va bankka pul qayerdan keldi (savdo, kredit) va qayerga ketdi (xarid, ish haqi)</td><td class="mono">/reports?report=cf</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 8</td><td>Hisob qoidalari, o'tgan xatolar</td><td>O'tgan yili xato topildi. Uni bu yilgi foydaga emas, o'tgan yilning raqamlariga tuzatish kiritiladi</td><td class="mono">/policies</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 12</td><td>Foyda solig'i</td><td>Soliq idorasi pechni 5 yilda, IFRS esa 10 yilda eskiradi. Shu farq tufayli kelajakda to'lanadigan soliq oldindan hisoblanadi</td><td class="mono">/deferred-tax</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 16</td><td>Bino, uskuna, mashinalar</td><td>50 mln lik pech 10 yil ishlaydi, har yili 5 mln eskirish yoziladi</td><td class="mono">/ppe</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 19</td><td>Xodimlarga to'lovlar</td><td>Xodimlarning ishlatilmagan ta'tili uchun to'lanadigan pul hozirdan qarz sifatida yoziladi</td><td class="mono">/employee-benefits</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 20</td><td>Davlat yordami</td><td>Davlat yangi uskuna uchun 20 mln subsidiya berdi. U bir martada emas, uskuna ishlagan yillarga bo'lib daromadga yoziladi</td><td class="mono">/government-grants</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 21</td><td>Valyuta</td><td>Korxonada 10 000 dollar bor. Oy oxirida kurs o'zgardi, so'mdagi qiymati qayta hisoblanadi</td><td class="mono">/currencies</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 24</td><td>"O'zimizniki" bilan savdo</td><td>Direktorning ukasining firmasidan xarid qilindi. Buni hisobotda alohida ko'rsatish shart</td><td class="mono">/related-parties</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 28</td><td>Boshqa korxonadagi ulush</td><td>Korxona boshqa firmaning 30% ulushiga ega. O'sha firma foydasining 30% i bizga yoziladi</td><td class="mono">/consolidation/equity-method</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 36</td><td>Qadrsizlanish</td><td>Uskuna eskirib, endi 10 mln ham turmaydi, hisobda esa 30 mln turibdi. Farqni zarar qilib yozish kerak</td><td class="mono">/cgu</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 37</td><td>Rezervlar, sud ishlari</td><td>Korxona sudda yutqazishi deyarli aniq, jarima 15 mln bo'ladi. Shu 15 mln hozirdan yoziladi</td><td class="mono">/provisions</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 38</td><td>Ko'rinmaydigan aktivlar</td><td>Buxgalteriya dasturi, litsenziya, brend. Ular ham uskuna kabi yillarga bo'lib eskiradi</td><td class="mono">/intangible-assets</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IFRS 6</td><td>Kon va qazilmalar</td><td>Oltin qidirishga sarflangan xarajatlar. Kon topilsa aktiv, topilmasa zarar</td><td class="mono">/mining-ifrs6</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IFRS 8</td><td>Faoliyat yo'nalishlari</td><td>Korxona ham non, ham shirinlik sotadi. Har bir yo'nalish qancha foyda berganini alohida ko'rsatish</td><td class="mono">/segments</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IFRS 9</td><td>Qarzlar va moliyaviy aktivlar</td><td>Mijozlar 100 mln qarzdor. Tajribaga ko'ra 3% qaytmaydi, shuning uchun 3 mln oldindan zarar sifatida yoziladi (ECL)</td><td class="mono">/financial-instruments, /ecl</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IFRS 10</td><td>Guruh hisoboti</td><td>Bitta egada 3 ta korxona bor. Ularning hisoboti bitta qilib birlashtiriladi</td><td class="mono">/consolidation</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IFRS 15</td><td>Tushumni qachon yozish</td><td>Mijoz 12 oylik xizmat uchun oldindan 12 mln to'ladi. Daromad birdaniga emas, har oy 1 mln dan yoziladi</td><td class="mono">/revenue/contracts</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IFRS 16</td><td>Ijara</td><td>Do'kon binosi 5 yilga ijarada. Bino aktiv sifatida, kelgusi to'lovlar esa qarz sifatida balansga yoziladi</td><td class="mono">/leases</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IFRS 18</td><td>Rahbariyat ko'rsatkichlari</td><td>Rahbariyat o'z hisoblagan ko'rsatkichini (masalan, "tozalangan foyda") e'lon qilsa, uni qanday hisoblaganini tushuntirishi shart. 2027-yildan majburiy</td><td class="mono">/mpms</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 29</td><td>Juda yuqori inflyatsiya</td><td>Narxlar 3 yilda ikki barobardan oshsa, hisobot qayta hisoblanadi. O'zbekistonda hozir talab qilinmaydi</td><td class="mono">—</td><td><span class="pill p-warn">Faqat eslatma</span></td></tr>
+      <tr><td class="mono">IAS 33</td><td>Bir aksiyaga foyda</td><td>Faqat aksiyasi birjada sotiladigan korxonalar uchun: "har bir aksiyaga qancha foyda to'g'ri keladi"</td><td class="mono">—</td><td><span class="pill p-bad">Yo'q</span></td></tr>
+      <tr><td class="mono">IFRS 5</td><td>Sotishga qo'yilgan mulk</td><td>Korxona eski omborni sotishga qaror qildi. U alohida qatorda ko'rsatiladi va boshqa eskirmaydi</td><td class="mono">—</td><td><span class="pill p-bad">Yo'q</span></td></tr>
+      <tr><td class="mono">IAS 40</td><td>Ijaraga berilgan mulk</td><td>Korxona binosining bir qavatini boshqalarga ijaraga beradi. Bu qavat alohida hisoblanadi</td><td class="mono">—</td><td><span class="pill p-bad">Yo'q</span></td></tr>
+      <tr><td class="mono">IAS 34</td><td>Choraklik hisobot</td><td>Yil oxirini kutmasdan, har chorakda qisqartirilgan hisobot berish</td><td class="mono">—</td><td><span class="pill p-bad">Yo'q</span></td></tr>
     </tbody>
   </table>
   </div>
-  <div class="note"><b>Xulosa:</b> sayt IFRS ga asosan mos keladi. Asosiy hisobotlar, milliy hisobdan IFRS ga o'tish, tasdiqlash tartibi va audit izi bor. Eng muhim yetishmaydigan narsa — <b>OCI va jami umumlashgan daromad</b>. IAS 33 faqat aksiyasi birjada sotiladigan korxonalarga kerak. IFRS 5 va IAS 40 korxonada shunday aktivlar bo'lsagina kerak.</div>
+  <div class="xulosa"><p>Sayt IFRS ning eng kerakli qoidalarini qamrab olgan: <b>26 tadan 21 tasi bor</b>. Eng muhim yetishmaydigan narsa — foyda hisobotidagi <b>OCI</b> qatori. Qolgan 4 tasi (IAS 33, IFRS 5, IAS 40, IAS 34) faqat korxonada shunday holat bo'lsa kerak bo'ladi.</p></div>
 </section>
 
 <!-- 9 -->
 <section id="muammo">
-  <div class="secnum">9</div>
+  <div class="secnum">10</div>
   <h2>Topilgan kamchiliklar va nima qilish kerak</h2>
+  <p>Kodni tekshirganda topilgan muammolar. "Muhimligi" ustuni nimani birinchi tuzatish kerakligini ko'rsatadi.</p>
   <div class="tblbox">
   <table class="tbl">
     <thead><tr><th>Muhimligi</th><th>Muammo</th><th>Nima qilish kerak</th><th>Fayl</th></tr></thead>
     <tbody>
       <tr><td><span class="pill p-bad">Yuqori</span></td><td>Foyda-zarar hisobotida OCI va "jami umumlashgan daromad" yo'q</td><td>Serverga OCI qatorlarini qo'shish, saytda ko'rsatish</td><td class="mono">types/reporting.ts</td></tr>
-      <tr><td><span class="pill p-bad">Yuqori</span></td><td>Milliy 1-shakl va 2-shakl yo'q</td><td>7-bo'limdagi 3 qadam</td><td class="mono">pages/reports/</td></tr>
+      <tr><td><span class="pill p-bad">Yuqori</span></td><td>Milliy 1-shakl va 2-shakl yo'q</td><td>"1-shakl, 2-shakl" bo'limidagi 3 qadam</td><td class="mono">pages/reports/</td></tr>
       <tr><td><span class="pill p-warn">O'rta</span></td><td>Bosh sahifada "Pul": server qoldiqni bermasa, kirgan va chiqqan pul <b>qo'shib</b> ko'rsatiladi. Bu qoldiq emas</td><td>To'g'risi: boshlang'ich qoldiq + kirim − chiqim</td><td class="mono">dashboard/financialOverview.ts:53</td></tr>
       <tr><td><span class="pill p-warn">O'rta</span></td><td>Daromad va xarajat schyot kodining boshlanishi bo'yicha topiladi (<code>IFRS.REV</code>, <code>IFRS.EXP</code> …). Kodlar boshqacha bo'lsa, bosh sahifada 0 chiqadi</td><td>Schyot turini (daromad/xarajat) serverdan olish</td><td class="mono">dashboard/financialOverview.ts:95</td></tr>
       <tr><td><span class="pill p-warn">O'rta</span></td><td>O'zbek tilida hisobot nomlari inglizcha qolgan</td><td>Tarjima qilish</td><td class="mono">lib/locales/uz.ts:693</td></tr>
@@ -584,11 +716,12 @@ a{color:var(--accent)}
     </tbody>
   </table>
   </div>
+  <div class="xulosa"><p>Ikkita katta ish bor (OCI qatori va 1-, 2-shakl) hamda bir nechta kichik tuzatish. Kichiklari bir-ikki kunlik ish, kattalari server tomonda ham o'zgarish talab qiladi.</p></div>
 </section>
 
 <!-- 10 -->
 <section id="oy">
-  <div class="secnum">10</div>
+  <div class="secnum">11</div>
   <h2>Oyni yopish tartibi (buxgalter uchun)</h2>
   <p>Har oy oxirida IFRS hisobotini olish uchun quyidagi tartibda ishlang:</p>
   <ol class="steps">
@@ -603,11 +736,48 @@ a{color:var(--accent)}
     <li><span><b>Davrni yopish</b>: oyni yoping.</span></li>
     <li><span><b>IFRS hisobotlari</b>: snapshot oling, hamkasbingiz tasdiqlasin, keyin yuklab oling.</span></li>
   </ol>
+  <div class="xulosa"><p>Har oy oxirida: ma'lumotni kiriting → kurs va eskirishni hisoblang → IFRS tuzatishlarini qiling → oyni yoping → hisobotni tasdiqlatib yuklab oling.</p></div>
+</section>
+
+<!-- 12 -->
+<section id="savol">
+  <div class="secnum">12</div>
+  <h2>Ko'p beriladigan savollar</h2>
+  <details class="faq"><summary>Hisobot bo'sh chiqyapti. Nima qilay?</summary><div><p>Tepada korxona va sahifada davr (oy) tanlanganini tekshiring. Ikkalasi tanlanmasa, hisobot ko'rinmaydi.</p></div></details>
+  <details class="faq"><summary>Hisobotni yuklab olish tugmasi bosilmayapti.</summary><div><p>Avval "Snapshot yaratish" ni bosing. Keyin <b>boshqa</b> xodim uni tasdiqlashi kerak. Shundan keyingina yuklab olish ochiladi.</p></div></details>
+  <details class="faq"><summary>Menyuda kerakli bo'lim ko'rinmayapti.</summary><div><p>Sizda shu bo'limga ruxsat yo'q. Administratorga murojaat qiling: "Sozlamalar → Foydalanuvchilar" dan rol beriladi.</p></div></details>
+  <details class="faq"><summary>Foyda bor, lekin pul yo'q. Bu xatomi?</summary><div><p>Yo'q. Foyda va pul har xil narsa. Mijozlar qarzga olgan bo'lsa, foyda yozilgan, lekin pul hali kelmagan. "Debitor-kreditor qarzlar" sahifasini ko'ring.</p></div></details>
+  <details class="faq"><summary>Bosh sahifadagi foyda va "Foyda va zarar" hisobotidagi foyda har xil.</summary><div><p>Rasmiy raqam — hisobotdagisi. Farq bo'lsa, schyotlar rejasidagi ba'zi schyotlar to'g'ri turga bog'lanmagan. Buni dasturchiga yoki bosh buxgalterga ayting.</p></div></details>
+  <details class="faq"><summary>1C da ishlayapmiz. Hammasini qaytadan kiritish kerakmi?</summary><div><p>Yo'q. 1C dan aylanma-saldo qaydnomasini Excel qilib "OSV import" sahifasiga yuklash yetarli. To'liq ko'chirish uchun "1C dan migratsiya" sahifasi bor.</p></div></details>
+  <details class="faq"><summary>Soliq idorasiga hisobotni shu saytdan topshirsa bo'ladimi?</summary><div><p>Hozircha yo'q. Davlatga 1-shakl va 2-shakl kerak, ular saytda hali yo'q. Sayt xalqaro (IFRS) hisobot uchun.</p></div></details>
+  <details class="faq"><summary>Oyni yopgandan keyin xato topildi.</summary><div><p>"Davrni yopish" sahifasida oyni qayta ochish mumkin. Buning uchun sabab yozish va ruxsat kerak. Barcha harakatlar audit jurnaliga yoziladi.</p></div></details>
+  <details class="faq"><summary>Sayt qaysi tillarda ishlaydi?</summary><div><p>O'zbek, rus va ingliz. Tepadagi RU / EN / UZ tugmasi bilan almashtiriladi. Ba'zi joylarda hali tarjima to'liq emas.</p></div></details>
+</section>
+
+<!-- 13 -->
+<section id="xulosa">
+  <div class="secnum">13</div>
+  <h2>Umumiy xulosa</h2>
+  <div class="grid2">
+    <div class="card"><h4>Sayt nima?</h4><p>Korxonaning milliy buxgalteriyasini xalqaro IFRS standartiga o'giradigan va xalqaro hisobot chiqaradigan dastur.</p></div>
+    <div class="card"><h4>IFRS ga mosmi?</h4><p>Asosan ha. Majburiy hisobotlarning deyarli hammasi va 26 ta qoidadan 21 tasi bor. Tasdiqlash va audit tartibi xalqaro talabga mos.</p></div>
+    <div class="card"><h4>Kirim-chiqim bormi?</h4><p>Ha. Daromad, xarajat, foyda, kassa, bank, qarzlar, to'lov kalendari va pul prognozi bor.</p></div>
+    <div class="card"><h4>1-shakl, 2-shakl bormi?</h4><p>Yo'q. IFRS dagi o'xshashlari bor, lekin davlatga topshiriladigan milliy shakllar alohida qo'shilishi kerak.</p></div>
+  </div>
+  <h3>Navbat bilan nima qilish kerak</h3>
+  <ol class="steps">
+    <li><span><b>Foyda hisobotiga OCI qatorini qo'shish.</b> Usiz hisobot IFRS ga to'liq mos emas. Server va sayt birga o'zgaradi.</span></li>
+    <li><span><b>1-shakl va 2-shaklni qo'shish</b>, agar mijozlar davlatga hisobotni shu saytdan topshirmoqchi bo'lsa.</span></li>
+    <li><span><b>Bosh sahifadagi "Pul" xatosini tuzatish.</b> Kichik ish, bir kunlik.</span></li>
+    <li><span><b>O'zbekcha tarjimani to'ldirish:</b> hisobot nomlari va ruscha qolgan xabarlar.</span></li>
+    <li><span><b>Serverni tekshirish:</b> pul oqimlari hisobotining usuli va raqamlar to'g'ri hisoblanishi.</span></li>
+  </ol>
+  <div class="xulosa"><p>Sayt yaxshi qurilgan va xalqaro hisobot uchun tayyorga yaqin. Ikkita katta va bir nechta kichik ish qoldi. Ular bajarilsa, sayt IFRS ga to'liq javob beradi.</p></div>
 </section>
 
 <!-- 11 -->
 <section id="dev">
-  <div class="secnum">11</div>
+  <div class="secnum">14</div>
   <h2>Dasturchilar uchun</h2>
   <p>Texnologiyalar: React 18, TypeScript, Vite, Tailwind, TanStack Query, Zustand, i18next. Server alohida (Spring), so'rovlar <code>/api/v1</code> ga yuboriladi.</p>
 <div class="tree"><span class="d">src/</span>
@@ -620,7 +790,7 @@ a{color:var(--accent)}
 │   ├── RequireAuth.tsx       <span class="d">← kirganmi, tekshiradi</span>
 │   ├── RequirePermission.tsx <span class="d">← ruxsati bormi, tekshiradi</span>
 │   └── ui/                   <span class="d">← tugma, jadval, summa va sana maydonlari</span>
-├── pages/&lt;bo'lim&gt;/           <span class="d">← har bir sahifa o'z papkasida (5-bo'limdagi jadval)</span>
+├── pages/&lt;bo'lim&gt;/           <span class="d">← har bir sahifa o'z papkasida ("Barcha sahifalar" jadvali)</span>
 ├── lib/
 │   ├── api.ts                <span class="d">← serverga so'rov, token, xatolar</span>
 │   ├── decimal.ts, format.ts <span class="d">← pul summalari (oddiy Number ishlatilmaydi!)</span>
@@ -663,7 +833,7 @@ a{color:var(--accent)}
   </div>
 
   <footer>
-    UzAssets IFRS qo'llanmasi · 2026-yil 19-noyabr holati. Sayt kodi o'zgarsa, 5-bo'limdagi ro'yxat va 8–9-bo'limlardagi baholarni yangilang.
+    UzAssets IFRS qo'llanmasi · 2026-yil 19-noyabr holati. Sayt kodi o'zgarsa, "Barcha sahifalar" ro'yxatini, "IFRS misollar bilan" va "Kamchiliklar" bo'limlaridagi baholarni yangilang.
   </footer>
 </section>
 </main>
