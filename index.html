@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UzAssets IFRS qo'llanmasi</title>
+<meta name="description" content="UzAssets IFRS saytining oddiy tildagi qo'llanmasi: nima qayerda, kirim-chiqim qanday hisoblanadi, 1-shakl va 2-shakl, IFRS ga mosligi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&display=swap">
+<style>
+/* Layout: chapda bo'limlar ro'yxati (telefonda tepada), o'ngda hujjat. Diagrammalar inline SVG. */
+:root{
+  --bg:#f6f7f5; --surface:#ffffff; --fg:#17201c; --muted:#5b6862; --line:#d9dfdb;
+  --accent:#0f6b55; --accent-soft:#e2f0eb;
+  --ok:#1d7a3e; --ok-soft:#e3f3e8; --warn:#9a6200; --warn-soft:#fbf0d9; --bad:#b3261e; --bad-soft:#fbe5e3;
+  --nsbu:#6a4fb3; --nsbu-soft:#ece7f8;
+  --f-display:"Bricolage Grotesque","IBM Plex Sans",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1412; --surface:#171e1b; --fg:#e4ebe7; --muted:#9aa8a1; --line:#2a3530;
+  --accent:#4fc4a1; --accent-soft:#16332a;
+  --ok:#6fd08f; --ok-soft:#14301f; --warn:#e8b75a; --warn-soft:#352812; --bad:#f08a82; --bad-soft:#3a1916;
+  --nsbu:#b49cf0; --nsbu-soft:#251d3d; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0f1412; --surface:#171e1b; --fg:#e4ebe7; --muted:#9aa8a1; --line:#2a3530;
+  --accent:#4fc4a1; --accent-soft:#16332a;
+  --ok:#6fd08f; --ok-soft:#14301f; --warn:#e8b75a; --warn-soft:#352812; --bad:#f08a82; --bad-soft:#3a1916;
+  --nsbu:#b49cf0; --nsbu-soft:#251d3d; color-scheme:dark;}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:240px minmax(0,1fr);gap:44px;padding-block:32px 80px}
+nav.toc{position:sticky;top:20px;align-self:start;font-size:14px;max-height:calc(100vh - 40px);overflow:auto}
+nav.toc b{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+nav.toc a{display:flex;gap:8px;color:var(--fg);text-decoration:none;padding:6px 8px;border-radius:6px}
+nav.toc a:hover,nav.toc a:focus-visible{background:var(--accent-soft);outline:none}
+nav.toc a span{color:var(--muted);font-family:var(--f-mono);font-size:12px;min-width:20px}
+main{min-width:0}
+header.hero{border-bottom:1px solid var(--line);padding-bottom:26px}
+.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-family:var(--f-display);font-size:clamp(30px,4.6vw,46px);line-height:1.08;margin:8px 0 14px;text-wrap:balance;letter-spacing:-.01em}
+h2{font-family:var(--f-display);font-size:27px;line-height:1.2;margin:0 0 8px;text-wrap:balance}
+h3{font-size:18px;margin:26px 0 8px}
+p{margin:0 0 12px;max-width:72ch}
+ul.plain{margin:0 0 12px;padding-left:20px;max-width:72ch}
+ul.plain li{margin-bottom:4px}
+.lead{font-size:18px;color:var(--muted);max-width:66ch}
+section{padding-block:44px 10px;border-bottom:1px solid var(--line);scroll-margin-top:12px}
+section:last-of-type{border-bottom:0}
+.secnum{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+code,.mono{font-family:var(--f-mono);font-size:.87em}
+code{background:var(--accent-soft);color:var(--fg);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+.figure{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;margin:18px 0}
+.figure figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
+.scroll{overflow-x:auto}
+svg text{font-family:var(--f-body)}
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--surface)}
+.tbl th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;padding:10px;border-bottom:1px solid var(--line);white-space:nowrap;position:sticky;top:0;background:var(--surface)}
+.tbl td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.mono{font-family:var(--f-mono);font-size:12.5px;white-space:nowrap}
+.tblbox{border:1px solid var(--line);border-radius:10px;overflow-x:auto;margin:14px 0}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.p-ok{background:var(--ok-soft);color:var(--ok)}
+.p-warn{background:var(--warn-soft);color:var(--warn)}
+.p-bad{background:var(--bad-soft);color:var(--bad)}
+.p-nsbu{background:var(--nsbu-soft);color:var(--nsbu)}
+.p-gray{background:var(--line);color:var(--fg)}
+.note{border-left:3px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 8px 8px 0;margin:16px 0;max-width:80ch}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.note.bad{border-color:var(--bad);background:var(--bad-soft)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
+.card h4{margin:0 0 6px;font-size:15.5px}
+.card p{font-size:14.5px;color:var(--muted);margin:0}
+.card a{font-size:14px}
+.who{display:flex;flex-direction:column;gap:6px}
+.who .ic{font-family:var(--f-mono);font-size:12px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.formula{font-family:var(--f-mono);font-size:14px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;overflow-x:auto;white-space:pre;line-height:1.75}
+.formula .c{color:var(--muted)}
+.formula .k{color:var(--accent);font-weight:500}
+dl.gloss{display:grid;grid-template-columns:minmax(150px,220px) minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface);margin:14px 0}
+dl.gloss dt,dl.gloss dd{margin:0;padding:10px 14px;border-bottom:1px solid var(--line)}
+dl.gloss dt{font-weight:600;background:var(--accent-soft)}
+dl.gloss dt:last-of-type,dl.gloss dd:last-of-type{border-bottom:0}
+dl.gloss dd{font-size:15px}
+
+/* App shell mockup */
+.shell{display:grid;grid-template-columns:180px minmax(0,1fr);grid-template-rows:auto 1fr;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:12.5px;min-height:310px;background:var(--bg)}
+.shell .sb{grid-row:1/3;background:var(--surface);border-right:1px solid var(--line);padding:10px}
+.shell .sb .logo{font-weight:700;margin-bottom:10px;color:var(--accent)}
+.shell .sb .g{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:10px 0 4px}
+.shell .sb .i{padding:3px 6px;border-radius:4px}
+.shell .sb .i.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.shell .tb{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 10px;border-bottom:1px solid var(--line);background:var(--surface)}
+.shell .chip{border:1px solid var(--line);border-radius:6px;padding:3px 8px;white-space:nowrap}
+.shell .chip.hl{border-color:var(--accent);color:var(--accent);font-weight:600}
+.shell .ct{padding:12px;display:grid;gap:8px;align-content:start}
+.shell .ph{font-weight:700;font-size:14px}
+.shell .kp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.shell .kp div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px}
+.shell .kp small{display:block;color:var(--muted);font-size:10px}
+.shell .bar{height:9px;border-radius:3px;background:var(--line)}
+.shell .num{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;background:var(--accent);color:var(--surface);font-size:10px;font-weight:700;margin-right:4px;vertical-align:-3px}
+.callouts{display:grid;gap:8px;margin-top:14px;font-size:14.5px}
+.callouts div{display:flex;gap:10px}
+.callouts b.n{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:50%;background:var(--accent);color:var(--surface);font-size:12px;flex:none}
+
+/* catalogue */
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0}
+.tools input,.tools select{font:inherit;font-size:15px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);min-width:0}
+.tools input{flex:1 1 260px}
+.tools select{flex:0 1 240px}
+.tools .count{font-size:13.5px;color:var(--muted)}
+.cat{max-height:640px;overflow:auto}
+.cat td.g{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.empty{padding:22px;text-align:center;color:var(--muted)}
+
+.tree{font-family:var(--f-mono);font-size:13px;line-height:1.7;white-space:pre;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;overflow-x:auto}
+.tree .d{color:var(--muted)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:12px 0;display:grid;gap:10px;max-width:80ch}
+.steps li{counter-increment:s;display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:13px}
+footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.themebtn{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:8px;padding:6px 10px;cursor:pointer;margin-top:14px}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:8px}
+  nav.toc{position:static;max-height:none}
+  nav.toc ol{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid2{grid-template-columns:minmax(0,1fr)}
+  .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  .grid4{grid-template-columns:minmax(0,1fr)}
+  .shell{grid-template-columns:minmax(0,1fr)}
+  .shell .sb{grid-row:auto;border-right:0;border-bottom:1px solid var(--line)}
+  dl.gloss{grid-template-columns:minmax(0,1fr)}
+  dl.gloss dt{border-bottom:0}
+}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="toc" aria-label="Bo'limlar">
+  <b>Mundarija</b>
+  <ol>
+    <li><a href="#kimga"><span>0</span>Kim nimani o'qisin</a></li>
+    <li><a href="#nima"><span>1</span>Sayt nima qiladi</a></li>
+    <li><a href="#lugat"><span>2</span>Lug'at</a></li>
+    <li><a href="#oqim"><span>3</span>Qanday ishlaydi</a></li>
+    <li><a href="#ekran"><span>4</span>Ekran tuzilishi</a></li>
+    <li><a href="#katalog"><span>5</span>Barcha sahifalar</a></li>
+    <li><a href="#kirim"><span>6</span>Kirim va chiqim</a></li>
+    <li><a href="#shakl"><span>7</span>1-shakl, 2-shakl</a></li>
+    <li><a href="#ifrs"><span>8</span>IFRS ga mosligi</a></li>
+    <li><a href="#muammo"><span>9</span>Kamchiliklar</a></li>
+    <li><a href="#oy"><span>10</span>Oy yopish tartibi</a></li>
+    <li><a href="#dev"><span>11</span>Dasturchilar uchun</a></li>
+  </ol>
+  <button class="themebtn" id="themebtn" type="button">Tungi / kunduzgi rejim</button>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="eyebrow">Qo'llanma · UzAssets IFRS</div>
+  <h1>UzAssets IFRS sayti: nima qayerda va qanday ishlaydi</h1>
+  <p class="lead">Bu qo'llanma saytni birinchi marta ko'rayotgan har bir kishi uchun: buxgalter, rahbar, auditor va dasturchi. Hamma narsa oddiy so'zlar va rasmlar bilan tushuntirilgan.</p>
+  <p style="font-size:13.5px;color:var(--muted)">Holat: 2026-yil 19-noyabr. Saytda 106 ta sahifa papkasi va 163 ta manzil bor. Bu qo'llanma saytning ko'rinadigan qismi (frontend) asosida yozilgan. Hisob-kitoblar serverda (backend) bajariladi.</p>
+</header>
+
+<!-- 0 -->
+<section id="kimga">
+  <div class="secnum">0</div>
+  <h2>Kim nimani o'qisin</h2>
+  <div class="grid4">
+    <div class="card who"><span class="ic">Buxgalter</span><p>Har kuni qaysi sahifada ishlash, kirim-chiqim qayerda.</p><a href="#ekran">4</a><a href="#kirim">6</a><a href="#oy">10</a></div>
+    <div class="card who"><span class="ic">Rahbar</span><p>Sayt nima beradi, IFRS ga mosmi, nima yetishmaydi.</p><a href="#nima">1</a><a href="#ifrs">8</a><a href="#muammo">9</a></div>
+    <div class="card who"><span class="ic">Auditor</span><p>Hisobot qanday tasdiqlanadi, qaysi standartlar bor.</p><a href="#oqim">3</a><a href="#ifrs">8</a></div>
+    <div class="card who"><span class="ic">Dasturchi</span><p>Qaysi sahifa qaysi faylda, yangi sahifa qanday qo'shiladi.</p><a href="#katalog">5</a><a href="#dev">11</a></div>
+  </div>
+</section>
+
+<!-- 1 -->
+<section id="nima">
+  <div class="secnum">1</div>
+  <h2>Sayt nima qiladi</h2>
+  <p>Korxona o'z hisobini O'zbekiston milliy standarti (<b>BHMS</b>, 1C dagi kabi) bo'yicha yuritadi. Lekin chet el investorlari, banklar va xalqaro auditorlar hisobotni <b>IFRS</b> (xalqaro standart) bo'yicha talab qiladi.</p>
+  <p>Bu sayt ikkalasini birga yuritadi. Milliy hisobdagi ma'lumotni oladi, IFRS qoidalariga moslab qayta guruhlaydi, kerakli tuzatishlarni qo'shadi va tayyor xalqaro hisobotlarni chiqaradi. Buni <b>parallel hisob</b> deyiladi.</p>
+  <h3>Qisqa baho</h3>
+  <div class="grid2">
+    <div class="card"><h4><span class="pill p-ok">Bor</span> IFRS ning asosiy hisobotlari</h4><p>Balans (moliyaviy holat), foyda-zarar, pul oqimlari, kapital o'zgarishi va izohlar. Hammasida o'tgan davr bilan solishtirish bor.</p></div>
+    <div class="card"><h4><span class="pill p-ok">Bor</span> 20 dan ortiq IFRS moduli</h4><p>Asosiy vositalar, ijara, kreditlar, rezervlar, soliq, valyuta, konsolidatsiya va boshqalar (8-bo'lim).</p></div>
+    <div class="card"><h4><span class="pill p-warn">Qisman</span> Kirim-chiqim</h4><p>Daromad, xarajat, foyda, kassa va bank bor. Bosh sahifadagi "Pul" ko'rsatkichida bitta xato bor (9-bo'lim).</p></div>
+    <div class="card"><h4><span class="pill p-bad">Yo'q</span> 1-shakl va 2-shakl</h4><p>Milliy "Buxgalteriya balansi" va "Moliyaviy natijalar" hisobotlari uchun sahifa yo'q (7-bo'lim).</p></div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="lugat">
+  <div class="secnum">2</div>
+  <h2>Lug'at: so'zlarning ma'nosi</h2>
+  <p>Qo'llanmada va saytda uchraydigan so'zlar. Qavs ichida ruscha yoki inglizcha nomi.</p>
+  <dl class="gloss">
+    <dt>BHMS (НСБУ, NSBU)</dt><dd>Buxgalteriya hisobining milliy standartlari. O'zbekistondagi oddiy buxgalteriya, 1C da yuritiladigan hisob.</dd>
+    <dt>IFRS (МСФО)</dt><dd>Moliyaviy hisobotning xalqaro standartlari. 140 dan ortiq davlatda qo'llanadi. Alohida qoidalari IAS va IFRS raqamlari bilan ataladi (masalan, IFRS 16 — ijara).</dd>
+    <dt>Yuridik shaxs</dt><dd>Hisobi yuritilayotgan korxona. Saytda bir nechta korxona bo'lishi mumkin; har doim bittasi tanlangan bo'ladi.</dd>
+    <dt>Davr</dt><dd>Hisobot muddati: oy, chorak yoki yil. Har bir hisobot davr tanlab ochiladi.</dd>
+    <dt>Provodka</dt><dd>Bitta xo'jalik operatsiyasining yozuvi: qaysi schyot debet, qaysi schyot kredit, qancha summa.</dd>
+    <dt>Bosh kitob (Главная книга)</dt><dd>Barcha provodkalar yig'ilgan asosiy daftar.</dd>
+    <dt>AOS (ОСВ)</dt><dd>Aylanma-saldo qaydnomasi: har bir schyot bo'yicha boshlang'ich qoldiq, oy davomidagi aylanma va oxirgi qoldiq.</dd>
+    <dt>Mapping (moslashtirish)</dt><dd>Milliy schyotni IFRS schyotiga bog'lash qoidasi. Masalan: "0100 Asosiy vositalar" → "IFRS.PPE".</dd>
+    <dt>Qayta tasniflash</dt><dd>Summani o'zgartirmasdan boshqa IFRS qatoriga o'tkazish.</dd>
+    <dt>Tuzatish (корректировка)</dt><dd>IFRS talabi bo'yicha summani o'zgartiradigan qo'shimcha provodka. Masalan, ijara uchun aktiv va majburiyat qo'shish.</dd>
+    <dt>Snapshot (снимок)</dt><dd>Hisobotning muzlatilgan nusxasi. Keyin raqamlar o'zgarsa ham, tasdiqlangan nusxa o'zgarmaydi.</dd>
+    <dt>OCI</dt><dd>Boshqa umumlashgan daromad. Foyda-zararga kirmaydigan, lekin kapitalni o'zgartiradigan summalar: qayta baholash, valyuta farqi va h.k.</dd>
+    <dt>Konsolidatsiya</dt><dd>Bir guruhdagi bir nechta korxona hisobotini bitta umumiy hisobotga birlashtirish.</dd>
+    <dt>Eliminatsiya</dt><dd>Konsolidatsiyada guruh ichidagi o'zaro savdo va qarzlarni olib tashlash.</dd>
+    <dt>Kontragent</dt><dd>Mijoz yoki yetkazib beruvchi: korxona kim bilan ishlasa.</dd>
+    <dt>Frontend / backend</dt><dd>Frontend — brauzerda ko'rinadigan qism (shu qo'llanma tasvirlaydi). Backend — serverdagi qism, hisob-kitobni shu bajaradi.</dd>
+  </dl>
+</section>
+
+<!-- 3 -->
+<section id="oqim">
+  <div class="secnum">3</div>
+  <h2>Qanday ishlaydi: 5 qadam</h2>
+  <p>Ma'lumot chapdan o'ngga yuradi. Binafsha rang — milliy hisob, yashil — IFRS.</p>
+  <figure class="figure">
+    <div class="scroll">
+    <svg viewBox="0 0 1000 430" width="1000" height="430" role="img" aria-label="Milliy hisobdan IFRS hisobotigacha ma'lumot yo'li" style="display:block">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--muted)"/></marker>
+      </defs>
+      <text x="10" y="22" style="fill:var(--nsbu);font-size:12px;font-weight:700;letter-spacing:.06em">MILLIY HISOB (BHMS)</text>
+      <text x="520" y="22" style="fill:var(--accent);font-size:12px;font-weight:700;letter-spacing:.06em">XALQARO HISOB (IFRS)</text>
+      <line x1="505" y1="10" x2="505" y2="300" style="stroke:var(--line);stroke-dasharray:4 4"/>
+
+      <g>
+        <rect x="10" y="40" width="150" height="56" rx="8" style="fill:var(--nsbu-soft);stroke:var(--nsbu)"/>
+        <text x="85" y="63" text-anchor="middle" style="fill:var(--fg);font-size:13px;font-weight:600">Hujjatlar kiritish</text>
+        <text x="85" y="82" text-anchor="middle" style="fill:var(--muted);font-size:11px">savdo, ombor, ish haqi</text>
+        <rect x="10" y="108" width="150" height="56" rx="8" style="fill:var(--nsbu-soft);stroke:var(--nsbu)"/>
+        <text x="85" y="131" text-anchor="middle" style="fill:var(--fg);font-size:13px;font-weight:600">1C dan import</text>
+        <text x="85" y="150" text-anchor="middle" style="fill:var(--muted);font-size:11px">AOS fayli (Excel)</text>
+        <rect x="10" y="176" width="150" height="56" rx="8" style="fill:var(--nsbu-soft);stroke:var(--nsbu)"/>
+        <text x="85" y="199" text-anchor="middle" style="fill:var(--fg);font-size:13px;font-weight:600">Bank ko'chirmasi</text>
+        <text x="85" y="218" text-anchor="middle" style="fill:var(--muted);font-size:11px">va boshqa tizimlar</text>
+      </g>
+      <text x="85" y="254" text-anchor="middle" style="fill:var(--accent);font-size:13px;font-weight:700">1-qadam</text>
+      <path d="M160,68 L200,130" style="stroke:var(--muted);fill:none" marker-end="url(#ar)"/>
+      <path d="M160,136 L200,136" style="stroke:var(--muted);fill:none" marker-end="url(#ar)"/>
+      <path d="M160,204 L200,142" style="stroke:var(--muted);fill:none" marker-end="url(#ar)"/>
+
+      <rect x="204" y="100" width="130" height="72" rx="8" style="fill:var(--nsbu-soft);stroke:var(--nsbu)"/>
+      <text x="269" y="128" text-anchor="middle" style="fill:var(--fg);font-size:13px;font-weight:600">Bosh kitob</text>
+      <text x="269" y="148" text-anchor="middle" style="fill:var(--muted);font-size:11px">barcha provodkalar</text>
+      <text x="269" y="196" text-anchor="middle" style="fill:var(--accent);font-size:13px;font-weight:700">2-qadam</text>
+      <path d="M334,136 L370,136" style="stroke:var(--muted);fill:none" marker-end="url(#ar)"/>
+
+      <rect x="374" y="100" width="120" height="72" rx="8" style="fill:var(--nsbu-soft);stroke:var(--nsbu)"/>
+      <text x="434" y="128" text-anchor="middle" style="fill:var(--fg);font-size:13px;font-weight:600">Milliy AOS</text>
+      <text x="434" y="148" text-anchor="middle" style="fill:var(--muted);font-size:11px">schyotlar qoldig'i</text>
+      <path d="M494,136 L530,136" style="stroke:var(--muted);fill:none" marker-end="url(#ar)"/>
+
+      <rect x="534" y="100" width="120" height="72" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/>
+      <text x="594" y="128" text-anchor="middle" style="fill:var(--fg);font-size:13px;font-weight:600">Moslashtirish</text>
+      <text x="594" y="148" text-anchor="middle" style="fill:var(--muted);font-size:11px">schyot → IFRS</text>
+      <text x="594" y="196" text-anchor="middle" style="fill:var(--accent);font-size:13px;font-weight:700">3-qadam</text>
+      <path d="M654,136 L690,136" style="stroke:var(--muted);fill:none" marker-end="url(#ar)"/>
+
+      <rect x="694" y="100" width="130" height="72" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/>
+      <text x="759" y="128" text-anchor="middle" style="fill:var(--fg);font-size:13px;font-weight:600">IFRS AOS</text>
+      <text x="759" y="148" text-anchor="middle" style="fill:var(--muted);font-size:11px">qayta guruhlangan</text>
+      <path d="M824,136 L860,136" style="stroke:var(--muted);fill:none" marker-end="url(#ar)"/>
+
+      <rect x="864" y="100" width="126" height="72" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/>
+      <text x="927" y="128" text-anchor="middle" style="fill:var(--fg);font-size:13px;font-weight:600">Yakuniy AOS</text>
+      <text x="927" y="148" text-anchor="middle" style="fill:var(--muted);font-size:11px">tuzatishlardan keyin</text>
+
+      <rect x="694" y="206" width="296" height="74" rx="8" style="fill:var(--surface);stroke:var(--accent);stroke-dasharray:5 4"/>
+      <text x="842" y="230" text-anchor="middle" style="fill:var(--fg);font-size:13px;font-weight:600">IFRS tuzatishlari</text>
+      <text x="842" y="250" text-anchor="middle" style="fill:var(--muted);font-size:11px">ijara, asosiy vositalar, rezervlar, soliq,</text>
+      <text x="842" y="266" text-anchor="middle" style="fill:var(--muted);font-size:11px">valyuta, kredit zarari (ECL) …</text>
+      <text x="676" y="250" text-anchor="end" style="fill:var(--accent);font-size:13px;font-weight:700">4-qadam</text>
+      <path d="M927,206 L927,176" style="stroke:var(--accent);fill:none" marker-end="url(#ar)"/>
+
+      <path d="M990,136 L996,136 L996,300 L600,300 L600,326" style="stroke:var(--muted);fill:none" marker-end="url(#ar)"/>
+      <rect x="10" y="330" width="980" height="92" rx="10" style="fill:var(--surface);stroke:var(--line)"/>
+      <text x="26" y="352" style="fill:var(--accent);font-size:13px;font-weight:700">5-qadam · Tayyor IFRS hisobotlari</text>
+      <g style="font-size:12.5px">
+        <rect x="26" y="366" width="150" height="40" rx="6" style="fill:var(--accent-soft)"/><text x="101" y="391" text-anchor="middle" style="fill:var(--fg)">Balans</text>
+        <rect x="186" y="366" width="150" height="40" rx="6" style="fill:var(--accent-soft)"/><text x="261" y="391" text-anchor="middle" style="fill:var(--fg)">Foyda va zarar</text>
+        <rect x="346" y="366" width="150" height="40" rx="6" style="fill:var(--accent-soft)"/><text x="421" y="391" text-anchor="middle" style="fill:var(--fg)">Pul oqimlari</text>
+        <rect x="506" y="366" width="150" height="40" rx="6" style="fill:var(--accent-soft)"/><text x="581" y="391" text-anchor="middle" style="fill:var(--fg)">Kapital o'zgarishi</text>
+        <rect x="666" y="366" width="150" height="40" rx="6" style="fill:var(--accent-soft)"/><text x="741" y="391" text-anchor="middle" style="fill:var(--fg)">Izohlar</text>
+        <rect x="826" y="366" width="150" height="40" rx="6" style="fill:var(--bad-soft)"/><text x="901" y="391" text-anchor="middle" style="fill:var(--bad)">OCI — yo'q</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption>Uchta AOS ni "IFRS hisobotlari" sahifasida, hisobot turi "AOS" tanlab, ko'rish mumkin: milliy → qayta tasniflangan → tuzatishlardan keyin.</figcaption>
+  </figure>
+
+  <h3>Hisobot qanday tasdiqlanadi</h3>
+  <p>Hisobotni yuklab olishdan oldin uning muzlatilgan nusxasi (snapshot) olinadi. Uni <b>boshqa xodim</b> tasdiqlashi shart. Bir kishi o'zi tayyorlab, o'zi tasdiqlay olmaydi. Bu xalqaro auditda "to'rt ko'z" nazorati deyiladi.</p>
+  <figure class="figure">
+    <div class="scroll">
+    <svg viewBox="0 0 860 120" width="860" height="120" role="img" aria-label="Hisobotni tasdiqlash tartibi" style="display:block">
+      <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--muted)"/></marker></defs>
+      <g style="font-size:13px">
+        <rect x="0" y="30" width="150" height="56" rx="8" style="fill:var(--surface);stroke:var(--line)"/><text x="75" y="54" text-anchor="middle" style="fill:var(--fg);font-weight:600">Oy yopiladi</text><text x="75" y="72" text-anchor="middle" style="fill:var(--muted);font-size:11px">Davrni yopish</text>
+        <path d="M150,58 L176,58" style="stroke:var(--muted)" marker-end="url(#ar2)"/>
+        <rect x="180" y="30" width="150" height="56" rx="8" style="fill:var(--surface);stroke:var(--line)"/><text x="255" y="54" text-anchor="middle" style="fill:var(--fg);font-weight:600">Snapshot olinadi</text><text x="255" y="72" text-anchor="middle" style="fill:var(--muted);font-size:11px">holat: qoralama</text>
+        <path d="M330,58 L356,58" style="stroke:var(--muted)" marker-end="url(#ar2)"/>
+        <rect x="360" y="30" width="150" height="56" rx="8" style="fill:var(--surface);stroke:var(--line)"/><text x="435" y="54" text-anchor="middle" style="fill:var(--fg);font-weight:600">Boshqa xodim</text><text x="435" y="72" text-anchor="middle" style="fill:var(--muted);font-size:11px">tasdiqlaydi</text>
+        <path d="M510,58 L536,58" style="stroke:var(--muted)" marker-end="url(#ar2)"/>
+        <rect x="540" y="30" width="150" height="56" rx="8" style="fill:var(--surface);stroke:var(--line)"/><text x="615" y="54" text-anchor="middle" style="fill:var(--fg);font-weight:600">Yuklab olish</text><text x="615" y="72" text-anchor="middle" style="fill:var(--muted);font-size:11px">Excel · PDF · CSV</text>
+        <path d="M690,58 L716,58" style="stroke:var(--muted)" marker-end="url(#ar2)"/>
+        <rect x="720" y="30" width="138" height="56" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/><text x="789" y="54" text-anchor="middle" style="fill:var(--fg);font-weight:600">Auditorga</text><text x="789" y="72" text-anchor="middle" style="fill:var(--muted);font-size:11px">Audit to'plami</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption>Hisobot sahifasida "Nazorat matritsasi: PASS" yozuvi chiqsa, balans tenglashgan (aktiv = majburiyat + kapital). "FAIL" bo'lsa, xato bor.</figcaption>
+  </figure>
+</section>
+
+<!-- 4 -->
+<section id="ekran">
+  <div class="secnum">4</div>
+  <h2>Ekran tuzilishi</h2>
+  <p>Kirgandan keyin har bir sahifa bir xil ko'rinishda ochiladi. Raqamlar pastdagi izohlarga mos.</p>
+  <figure class="figure">
+    <div class="shell" aria-hidden="true">
+      <div class="sb">
+        <div class="logo"><span class="num">1</span>UzAssets IFRS</div>
+        <div class="g">Buxgalter stoli</div>
+        <div class="i on">Bosh sahifa</div><div class="i">Mening vazifalarim</div><div class="i">Tasdiqlashlar</div><div class="i">Bank va kassa</div>
+        <div class="g">IFRS yadrosi</div>
+        <div class="i">Bosh kitob</div><div class="i">NSBU → IFRS moslashtirish</div><div class="i">Tuzatishlar</div>
+        <div class="g">Hisobotlar</div>
+        <div class="i">IFRS hisobotlari</div><div class="i">…</div>
+      </div>
+      <div class="tb">
+        <span class="chip hl"><span class="num">2</span>Korxona: "Namuna MChJ"</span>
+        <span class="chip"><span class="num">3</span>Ctrl+K qidiruv</span>
+        <span class="chip"><span class="num">4</span>Tez o'tish</span>
+        <span class="chip">RU / EN / UZ</span>
+        <span class="chip">Tema</span>
+      </div>
+      <div class="ct">
+        <div class="ph"><span class="num">5</span>Bosh sahifa · Davr: 2026-oktabr</div>
+        <div class="kp"><div><small>Daromad</small>1 000</div><div><small>Xarajat</small>800</div><div><small>Foyda</small>200</div></div>
+        <div class="bar" style="width:90%"></div><div class="bar" style="width:62%"></div><div class="bar" style="width:78%"></div>
+      </div>
+    </div>
+    <div class="callouts">
+      <div><b class="n">1</b><span><b>Chap menyu.</b> Barcha bo'limlar shu yerda, guruhlarga bo'lingan. Sizda ruxsat bo'lmagan bo'limlar ko'rinmaydi.</span></div>
+      <div><b class="n">2</b><span><b>Korxona tanlovi.</b> Butun sayt uchun bitta. Avval korxonani tanlang, aks holda hisobotlar bo'sh chiqadi.</span></div>
+      <div><b class="n">3</b><span><b>Qidiruv</b> (Ctrl+K). Sahifa nomini yozing, darhol o'tadi.</span></div>
+      <div><b class="n">4</b><span><b>Tez o'tish.</b> Har kuni kerak bo'ladigan 9 ta sahifa: bosh sahifa, vazifalar, tasdiqlashlar, hujjatlar, savdo, materiallar, bank-kassa, to'lov kalendari, qarzlar.</span></div>
+      <div><b class="n">5</b><span><b>Davr tanlovi.</b> Deyarli har bir hisobotda bor. Qaysi oy yoki yilni ko'rmoqchi bo'lsangiz, shu yerda tanlaysiz.</span></div>
+    </div>
+    <figcaption>Rasmdagi raqamlar namuna uchun.</figcaption>
+  </figure>
+</section>
+
+<!-- 5 -->
+<section id="katalog">
+  <div class="secnum">5</div>
+  <h2>Saytdagi barcha sahifalar</h2>
+  <p>Saytning har bir sahifasi: menyudagi nomi, nima uchun kerakligi, brauzerdagi manzili va kodi qaysi papkada. Qidiruvga so'z yozing yoki guruhni tanlang.</p>
+  <div class="tools">
+    <label for="q" style="position:absolute;left:-9999px">Qidirish</label>
+    <input id="q" type="search" placeholder="Qidirish: masalan, ijara, kassa, /ledger, IFRS 16">
+    <label for="grp" style="position:absolute;left:-9999px">Guruh</label>
+    <select id="grp"><option value="">Barcha guruhlar</option></select>
+    <span class="count" id="cnt"></span>
+  </div>
+  <div class="tblbox cat">
+    <table class="tbl">
+      <thead><tr><th>Sahifa</th><th>Nima qiladi</th><th>Manzil</th><th>Kod papkasi</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div class="empty" id="empty" hidden>Hech narsa topilmadi. Boshqa so'z bilan qidiring.</div>
+  </div>
+  <p style="font-size:13.5px;color:var(--muted)">Manzil oldiga sayt domeni qo'shiladi. Kod papkasi <code>src/pages/</code> ichida.</p>
+</section>
+
+<!-- 6 -->
+<section id="kirim">
+  <div class="secnum">6</div>
+  <h2>Kirim va chiqim</h2>
+  <p>Saytda "kirim-chiqim" ikki xil:</p>
+  <ul class="plain">
+    <li><b>Daromad va xarajat</b> — korxona qancha ishladi, qancha sarfladi, foyda qancha.</li>
+    <li><b>Pul kirimi va chiqimi</b> — kassa va bankka qancha pul kirdi, qancha chiqdi.</li>
+  </ul>
+  <div class="tblbox">
+  <table class="tbl">
+    <thead><tr><th>Nima</th><th>Qaysi sahifada</th><th>Manzil</th></tr></thead>
+    <tbody>
+      <tr><td>Daromad, xarajat, foyda (tezkor)</td><td>Bosh sahifa, yuqoridagi kartochkalar</td><td class="mono">/dashboard</td></tr>
+      <tr><td>Daromad va xarajat (rasmiy IFRS)</td><td>IFRS hisobotlari → Foyda va zarar</td><td class="mono">/reports?report=pnl</td></tr>
+      <tr><td>Kassa kirim va chiqim orderlari</td><td>Bank va kassa → Kassa kitobi</td><td class="mono">/operations/cash-bank/cash-book</td></tr>
+      <tr><td>Bank kirim va chiqimi</td><td>Bank va kassa → Bank ko'chirmalari</td><td class="mono">/operations/cash-bank/statements</td></tr>
+      <tr><td>Kelgusi to'lovlar</td><td>To'lov kalendari, To'lovnomalar</td><td class="mono">/payment-calendar, /payment-requests</td></tr>
+      <tr><td>Pul qancha qoladi (prognoz)</td><td>Pul mablag'lari prognozi</td><td class="mono">/cash-forecast</td></tr>
+      <tr><td>Xarajat turlari</td><td>Xarajat moddalari</td><td class="mono">/expense-articles</td></tr>
+      <tr><td>Kim kimga qarzdor</td><td>Debitor-kreditor qarzlar</td><td class="mono">/debts</td></tr>
+      <tr><td>Reja va fakt</td><td>Byudjet / Fakt</td><td class="mono">/budget</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Bosh sahifadagi formulalar</h3>
+  <p>Bosh sahifa ko'rsatkichlari shunday hisoblanadi:</p>
+<div class="formula"><span class="k">Daromad</span>   = tushum schyotlari + boshqa daromad + moliyaviy daromad
+<span class="k">Xarajat</span>   = tannarx + operatsion xarajat + moliyaviy xarajat + zararlar
+<span class="k">Foyda</span>     = Daromad − Xarajat
+<span class="k">Marja</span>     = Foyda ÷ Daromad × 100%     <span class="c">← byudjetdagi marja bilan solishtiriladi</span>
+<span class="k">Pul oqimi</span> = Bankka kirgan pul − Bankdan chiqqan pul
+<span class="k">Debitorlik</span>  = mijozlarning bizga qarzi
+<span class="k">Kreditorlik</span> = bizning yetkazib beruvchilarga qarzimiz</div>
+
+  <figure class="figure">
+    <div class="scroll">
+    <svg viewBox="0 0 720 240" width="720" height="240" role="img" aria-label="Daromaddan xarajatlar ayrilib foyda qolishi" style="display:block">
+      <g style="font-size:13px">
+        <text x="0" y="20" style="fill:var(--muted);font-size:12px">Namuna: bir oy, mln so'm</text>
+        <text x="0" y="62" style="fill:var(--fg);font-weight:600">Daromad</text>
+        <rect x="120" y="44" width="500" height="28" rx="4" style="fill:var(--ok)"/>
+        <text x="628" y="63" style="fill:var(--fg)">1 000</text>
+        <text x="0" y="112" style="fill:var(--fg);font-weight:600">Tannarx</text>
+        <rect x="120" y="94" width="300" height="28" rx="4" style="fill:var(--bad)"/>
+        <text x="428" y="113" style="fill:var(--fg)">− 600</text>
+        <text x="0" y="152" style="fill:var(--fg);font-weight:600">Boshqa xarajat</text>
+        <rect x="420" y="134" width="100" height="28" rx="4" style="fill:var(--bad);opacity:.7"/>
+        <text x="528" y="153" style="fill:var(--fg)">− 200</text>
+        <text x="0" y="202" style="fill:var(--fg);font-weight:600">Foyda</text>
+        <rect x="520" y="184" width="100" height="28" rx="4" style="fill:var(--accent)"/>
+        <text x="628" y="203" style="fill:var(--fg)">= 200 (20%)</text>
+        <line x1="120" y1="36" x2="120" y2="222" style="stroke:var(--line)"/>
+      </g>
+    </svg>
+    </div>
+    <figcaption>Raqamlar faqat tushuntirish uchun, haqiqiy ma'lumot emas.</figcaption>
+  </figure>
+  <div class="note">Bosh sahifadagi raqam — tezkor ko'rsatkich. Rasmiy raqam "IFRS hisobotlari → Foyda va zarar" da. Ikkalasi teng bo'lishi kerak. Farq bo'lsa, korxona schyotlar rejasidagi kodlar sayt kutgan nomlarga mos kelmayapti (9-bo'lim).</div>
+</section>
+
+<!-- 7 -->
+<section id="shakl">
+  <div class="secnum">7</div>
+  <h2>1-shakl va 2-shakl bormi?</h2>
+  <p>O'zbekistonda soliq va statistika organlariga topshiriladigan ikkita asosiy milliy hisobot bor:</p>
+  <ul class="plain">
+    <li><b>1-shakl</b> — "Buxgalteriya balansi"</li>
+    <li><b>2-shakl</b> — "Moliyaviy natijalar to'g'risida hisobot"</li>
+  </ul>
+  <p>Saytda ular uchun <b>alohida sahifa yo'q</b>. Lekin IFRS dagi o'xshashlari bor:</p>
+
+  <figure class="figure">
+    <div class="scroll">
+    <svg viewBox="0 0 820 250" width="820" height="250" role="img" aria-label="Milliy shakllar va IFRS dagi o'xshashlari" style="display:block">
+      <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--muted)"/></marker></defs>
+      <text x="0" y="20" style="fill:var(--nsbu);font-size:12px;font-weight:700;letter-spacing:.06em">MILLIY (BHMS)</text>
+      <text x="470" y="20" style="fill:var(--accent);font-size:12px;font-weight:700;letter-spacing:.06em">IFRS (SAYTDA BOR)</text>
+      <g style="font-size:13px">
+        <rect x="0" y="36" width="320" height="70" rx="8" style="fill:var(--surface);stroke:var(--bad);stroke-dasharray:6 4"/>
+        <text x="16" y="62" style="fill:var(--fg);font-weight:600">1-shakl · Buxgalteriya balansi</text>
+        <text x="16" y="84" style="fill:var(--bad);font-size:12px">saytda yo'q</text>
+        <path d="M320,71 L466,71" style="stroke:var(--muted);fill:none" marker-end="url(#ar3)"/>
+        <text x="393" y="62" text-anchor="middle" style="fill:var(--muted);font-size:11px">o'xshashi</text>
+        <rect x="470" y="36" width="350" height="70" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/>
+        <text x="486" y="62" style="fill:var(--fg);font-weight:600">Moliyaviy holat to'g'risida hisobot</text>
+        <text x="486" y="84" style="fill:var(--muted);font-size:12px">/reports?report=sofp</text>
+
+        <rect x="0" y="130" width="320" height="70" rx="8" style="fill:var(--surface);stroke:var(--bad);stroke-dasharray:6 4"/>
+        <text x="16" y="156" style="fill:var(--fg);font-weight:600">2-shakl · Moliyaviy natijalar</text>
+        <text x="16" y="178" style="fill:var(--bad);font-size:12px">saytda yo'q</text>
+        <path d="M320,165 L466,165" style="stroke:var(--muted);fill:none" marker-end="url(#ar3)"/>
+        <text x="393" y="156" text-anchor="middle" style="fill:var(--muted);font-size:11px">o'xshashi</text>
+        <rect x="470" y="130" width="350" height="70" rx="8" style="fill:var(--accent-soft);stroke:var(--accent)"/>
+        <text x="486" y="156" style="fill:var(--fg);font-weight:600">Foyda va zarar to'g'risida hisobot</text>
+        <text x="486" y="178" style="fill:var(--muted);font-size:12px">/reports?report=pnl</text>
+      </g>
+      <text x="0" y="234" style="fill:var(--muted);font-size:12px">Milliy tomonda bor: milliy AOS va 1C uslubidagi hisobotlar (ОСВ по счёту, Анализ счёта, Главная книга) — /reports/one-c</text>
+    </svg>
+    </div>
+  </figure>
+
+  <div class="note warn"><b>Farqi muhim:</b> IFRS hisoboti 1-shakl yoki 2-shaklning o'rnini bosa olmaydi. Qatorlar, guruhlash va baholash qoidalari boshqacha. Davlat organlariga milliy shakl kerak bo'lsa, uni saytga alohida qo'shish kerak.</div>
+  <h3>Qanday qo'shiladi</h3>
+  <ol class="steps">
+    <li><span>Server (backend) da 1-shakl va 2-shakl hisoboti bor-yo'qligini tekshirish.</span></li>
+    <li><span>Yo'q bo'lsa: milliy schyotlarni shakl qatorlariga (010, 020, 130 …) bog'lovchi jadval tuzish. Bu server ishi.</span></li>
+    <li><span>Saytda "IFRS hisobotlari" sahifasiga ikkita yangi tur qo'shish: "1-shakl" va "2-shakl". Fayl: <code>src/pages/reports/ReportsPage.tsx</code>.</span></li>
+  </ol>
+</section>
+
+<!-- 8 -->
+<section id="ifrs">
+  <div class="secnum">8</div>
+  <h2>IFRS ga mosligi</h2>
+  <p>IFRS bo'yicha to'liq hisobotlar to'plami (IAS 1 standarti) quyidagilardan iborat bo'lishi shart:</p>
+  <div class="tblbox">
+  <table class="tbl">
+    <thead><tr><th>Talab</th><th>Holat</th><th>Izoh</th></tr></thead>
+    <tbody>
+      <tr><td>Balans (moliyaviy holat)</td><td><span class="pill p-ok">Bor</span></td><td>Qisqa va uzoq muddatli qismlarga bo'lingan, o'tgan davr bilan solishtiriladi</td></tr>
+      <tr><td>Foyda va zarar</td><td><span class="pill p-ok">Bor</span></td><td>IAS 1 qatorlari bo'yicha, segmentlar bo'yicha ham</td></tr>
+      <tr><td>Boshqa umumlashgan daromad (OCI)</td><td><span class="pill p-bad">Yo'q</span></td><td>Hisobotda "jami umumlashgan daromad" qatori yo'q, faqat "davr foydasi" bor. IAS 1 buni majburiy qiladi</td></tr>
+      <tr><td>Kapital o'zgarishi</td><td><span class="pill p-ok">Bor</span></td><td>Excel va CSV ga yuklanadi, PDF yo'q</td></tr>
+      <tr><td>Pul oqimlari (IAS 7)</td><td><span class="pill p-warn">Tekshirish kerak</span></td><td>Hisobot bor. Qaysi usulda tuzilishi (to'g'ridan-to'g'ri yoki bilvosita) serverda, tekshirish kerak</td></tr>
+      <tr><td>Izohlar</td><td><span class="pill p-ok">Bor</span></td><td>Tekshiruv ro'yxati va izoh paketlari, tasdiqlash bilan</td></tr>
+      <tr><td>O'tgan davr bilan solishtirish</td><td><span class="pill p-ok">Bor</span></td><td>Barcha asosiy hisobotlarda va alohida "Qiyosiy hisobotlar" sahifasida</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Standartlar bo'yicha</h3>
+  <div class="tblbox">
+  <table class="tbl">
+    <thead><tr><th>Standart</th><th>Oddiy so'z bilan</th><th>Sahifa</th><th>Holat</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">IFRS 1</td><td>IFRS ga birinchi marta o'tish</td><td class="mono">/ifrs1</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 2</td><td>Tovar va materiallar zaxirasi</td><td class="mono">/inventory</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 7</td><td>Pul oqimlari</td><td class="mono">/reports?report=cf</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 8</td><td>Hisob siyosati, xatolarni tuzatish</td><td class="mono">/policies</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 12</td><td>Foyda solig'i, kechiktirilgan soliq</td><td class="mono">/deferred-tax</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 16</td><td>Asosiy vositalar (bino, uskuna)</td><td class="mono">/ppe</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 19</td><td>Xodimlarga to'lovlar (ta'til, nafaqa)</td><td class="mono">/employee-benefits</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 20</td><td>Davlat subsidiyalari</td><td class="mono">/government-grants</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 21</td><td>Valyuta kurslari</td><td class="mono">/currencies</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 24</td><td>Bog'liq tomonlar bilan operatsiyalar</td><td class="mono">/related-parties</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 28</td><td>Sho'ba bo'lmagan korxonalardagi ulush</td><td class="mono">/consolidation/equity-method</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 36</td><td>Aktivlar qadrsizlanishi</td><td class="mono">/cgu</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 37</td><td>Rezervlar, sud ishlari</td><td class="mono">/provisions</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 38</td><td>Nomoddiy aktivlar (dastur, litsenziya)</td><td class="mono">/intangible-assets</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IFRS 6</td><td>Foydali qazilmalarni qidirish</td><td class="mono">/mining-ifrs6</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IFRS 8</td><td>Faoliyat segmentlari</td><td class="mono">/segments</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IFRS 9</td><td>Moliyaviy instrumentlar, kredit zarari (ECL)</td><td class="mono">/financial-instruments, /ecl</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IFRS 10</td><td>Guruh hisobotini birlashtirish</td><td class="mono">/consolidation</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IFRS 15</td><td>Shartnomalar bo'yicha tushum</td><td class="mono">/revenue/contracts</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IFRS 16</td><td>Ijara</td><td class="mono">/leases</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IFRS 18</td><td>Rahbariyat ko'rsatkichlari (2027-yildan)</td><td class="mono">/mpms</td><td><span class="pill p-ok">Bor</span></td></tr>
+      <tr><td class="mono">IAS 29</td><td>Giperinflyatsiya</td><td class="mono">—</td><td><span class="pill p-warn">Faqat eslatma</span></td></tr>
+      <tr><td class="mono">IAS 33</td><td>Bir aksiyaga foyda</td><td class="mono">—</td><td><span class="pill p-bad">Yo'q</span></td></tr>
+      <tr><td class="mono">IFRS 5</td><td>Sotishga mo'ljallangan aktivlar</td><td class="mono">—</td><td><span class="pill p-bad">Yo'q</span></td></tr>
+      <tr><td class="mono">IAS 40</td><td>Ijaraga beriladigan mulk</td><td class="mono">—</td><td><span class="pill p-bad">Yo'q</span></td></tr>
+      <tr><td class="mono">IAS 34</td><td>Oraliq (choraklik) hisobot</td><td class="mono">—</td><td><span class="pill p-bad">Yo'q</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="note"><b>Xulosa:</b> sayt IFRS ga asosan mos keladi. Asosiy hisobotlar, milliy hisobdan IFRS ga o'tish, tasdiqlash tartibi va audit izi bor. Eng muhim yetishmaydigan narsa — <b>OCI va jami umumlashgan daromad</b>. IAS 33 faqat aksiyasi birjada sotiladigan korxonalarga kerak. IFRS 5 va IAS 40 korxonada shunday aktivlar bo'lsagina kerak.</div>
+</section>
+
+<!-- 9 -->
+<section id="muammo">
+  <div class="secnum">9</div>
+  <h2>Topilgan kamchiliklar va nima qilish kerak</h2>
+  <div class="tblbox">
+  <table class="tbl">
+    <thead><tr><th>Muhimligi</th><th>Muammo</th><th>Nima qilish kerak</th><th>Fayl</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill p-bad">Yuqori</span></td><td>Foyda-zarar hisobotida OCI va "jami umumlashgan daromad" yo'q</td><td>Serverga OCI qatorlarini qo'shish, saytda ko'rsatish</td><td class="mono">types/reporting.ts</td></tr>
+      <tr><td><span class="pill p-bad">Yuqori</span></td><td>Milliy 1-shakl va 2-shakl yo'q</td><td>7-bo'limdagi 3 qadam</td><td class="mono">pages/reports/</td></tr>
+      <tr><td><span class="pill p-warn">O'rta</span></td><td>Bosh sahifada "Pul": server qoldiqni bermasa, kirgan va chiqqan pul <b>qo'shib</b> ko'rsatiladi. Bu qoldiq emas</td><td>To'g'risi: boshlang'ich qoldiq + kirim − chiqim</td><td class="mono">dashboard/financialOverview.ts:53</td></tr>
+      <tr><td><span class="pill p-warn">O'rta</span></td><td>Daromad va xarajat schyot kodining boshlanishi bo'yicha topiladi (<code>IFRS.REV</code>, <code>IFRS.EXP</code> …). Kodlar boshqacha bo'lsa, bosh sahifada 0 chiqadi</td><td>Schyot turini (daromad/xarajat) serverdan olish</td><td class="mono">dashboard/financialOverview.ts:95</td></tr>
+      <tr><td><span class="pill p-warn">O'rta</span></td><td>O'zbek tilida hisobot nomlari inglizcha qolgan</td><td>Tarjima qilish</td><td class="mono">lib/locales/uz.ts:693</td></tr>
+      <tr><td><span class="pill p-gray">Past</span></td><td>Hisobot sahifasidagi ba'zi xabarlar faqat ruscha</td><td>Tarjima kalitlariga o'tkazish</td><td class="mono">reports/ReportsPage.tsx</td></tr>
+      <tr><td><span class="pill p-gray">Past</span></td><td>Pul oqimlari hisobotining usuli noma'lum</td><td>Serverda tekshirish, hisobotda usulni yozib qo'yish</td><td class="mono">backend</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- 10 -->
+<section id="oy">
+  <div class="secnum">10</div>
+  <h2>Oyni yopish tartibi (buxgalter uchun)</h2>
+  <p>Har oy oxirida IFRS hisobotini olish uchun quyidagi tartibda ishlang:</p>
+  <ol class="steps">
+    <li><span>Yuqorida <b>korxonani</b> tanlang.</span></li>
+    <li><span>Oy davomidagi hujjatlarni kiriting yoki 1C dan AOS ni yuklang: <b>OSV import</b> (<code>/import/trial-balance</code>).</span></li>
+    <li><span>Bank ko'chirmalarini yuklang va <b>Bank solishtiruvi</b>ni bajaring.</span></li>
+    <li><span><b>Valyutalar va kurslar</b>: oy oxiri kursini kiriting va qayta baholang.</span></li>
+    <li><span>Asosiy vositalar eskirishini hisoblang: <b>Asosiy vositalar eskirishi</b>.</span></li>
+    <li><span><b>NSBU → IFRS moslashtirish</b>: yangi schyotlar uchun qoida qo'shing va qo'llang.</span></li>
+    <li><span>IFRS modullarini to'ldiring (ijara, rezervlar, ECL, kechiktirilgan soliq) va <b>Tuzatishlar</b>ni tasdiqlating.</span></li>
+    <li><span><b>Yopish kokpiti</b>da barcha vazifalar yashil ekanini tekshiring.</span></li>
+    <li><span><b>Davrni yopish</b>: oyni yoping.</span></li>
+    <li><span><b>IFRS hisobotlari</b>: snapshot oling, hamkasbingiz tasdiqlasin, keyin yuklab oling.</span></li>
+  </ol>
+</section>
+
+<!-- 11 -->
+<section id="dev">
+  <div class="secnum">11</div>
+  <h2>Dasturchilar uchun</h2>
+  <p>Texnologiyalar: React 18, TypeScript, Vite, Tailwind, TanStack Query, Zustand, i18next. Server alohida (Spring), so'rovlar <code>/api/v1</code> ga yuboriladi.</p>
+<div class="tree"><span class="d">src/</span>
+├── main.tsx                  <span class="d">← ilova shu yerdan boshlanadi</span>
+├── router.tsx                <span class="d">← barcha manzillar (sahifalar kerak bo'lganda yuklanadi)</span>
+├── components/
+│   ├── appShellNav.ts        <span class="d">← chap menyu + kim nimani ko'radi (ruxsatlar)</span>
+│   ├── layout/AppShell.tsx   <span class="d">← asosiy qobiq (menyu, yuqori panel)</span>
+│   ├── AppShell.tsx          <span class="d">← ESKI, faqat testlar ishlatadi, tegmang</span>
+│   ├── RequireAuth.tsx       <span class="d">← kirganmi, tekshiradi</span>
+│   ├── RequirePermission.tsx <span class="d">← ruxsati bormi, tekshiradi</span>
+│   └── ui/                   <span class="d">← tugma, jadval, summa va sana maydonlari</span>
+├── pages/&lt;bo'lim&gt;/           <span class="d">← har bir sahifa o'z papkasida (5-bo'limdagi jadval)</span>
+├── lib/
+│   ├── api.ts                <span class="d">← serverga so'rov, token, xatolar</span>
+│   ├── decimal.ts, format.ts <span class="d">← pul summalari (oddiy Number ishlatilmaydi!)</span>
+│   ├── i18n.ts + locales/    <span class="d">← ru / en / uz tarjimalar</span>
+│   └── legacy-ui-*.ts        <span class="d">← eski ruscha matnlarni avtomatik tarjima qiladi</span>
+├── store/
+│   ├── auth.ts               <span class="d">← token, rollar, ruxsatlar</span>
+│   └── entity.ts             <span class="d">← tanlangan korxona</span>
+└── types/                    <span class="d">← server javoblarining turlari</span></div>
+
+  <h3>Yangi sahifa qo'shish — 3 qadam</h3>
+  <figure class="figure">
+    <div class="scroll">
+    <svg viewBox="0 0 780 110" width="780" height="110" role="img" aria-label="Yangi sahifa qo'shish uchun uch qadam" style="display:block">
+      <defs><marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--muted)"/></marker></defs>
+      <g style="font-size:13px">
+        <rect x="0" y="20" width="230" height="70" rx="8" style="fill:var(--surface);stroke:var(--line)"/>
+        <text x="16" y="46" style="fill:var(--accent);font-weight:700">1. router.tsx</text>
+        <text x="16" y="68" style="fill:var(--muted);font-size:12px">lazy(() =&gt; import('./pages/…'))</text>
+        <path d="M230,55 L270,55" style="stroke:var(--muted)" marker-end="url(#ar4)"/>
+        <rect x="274" y="20" width="230" height="70" rx="8" style="fill:var(--surface);stroke:var(--line)"/>
+        <text x="290" y="46" style="fill:var(--accent);font-weight:700">2. appShellNav.ts</text>
+        <text x="290" y="68" style="fill:var(--muted);font-size:12px">menyu bandi + ruxsat kodi</text>
+        <path d="M504,55 L544,55" style="stroke:var(--muted)" marker-end="url(#ar4)"/>
+        <rect x="548" y="20" width="230" height="70" rx="8" style="fill:var(--surface);stroke:var(--line)"/>
+        <text x="564" y="46" style="fill:var(--accent);font-weight:700">3. locales/ru, en, uz</text>
+        <text x="564" y="68" style="fill:var(--muted);font-size:12px">sahifa nomi uch tilda</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption>Menyuga qo'shilmagan sahifaning ruxsatini tizim topa olmaydi. Bunday sahifani <code>ROUTE_ACCESS_OVERRIDES</code> ga qo'shing.</figcaption>
+  </figure>
+
+  <h3>Asosiy qoidalar</h3>
+  <div class="grid2">
+    <div class="card"><h4>Pul uchun Number ishlatmang</h4><p><code>lib/decimal.ts</code> va <code>money-input</code> ni ishlating. Oddiy sonlarda 0.1 + 0.2 = 0.30000000000000004 bo'ladi, buxgalteriyada bu xato.</p></div>
+    <div class="card"><h4>Korxona va davr har doim kerak</h4><p>Deyarli har bir so'rov <code>entityId</code> va <code>periodId</code> ga bog'liq. Ikkalasi tanlanmaguncha so'rov yubormang.</p></div>
+    <div class="card"><h4>Matnni kodga yozib qo'ymang</h4><p>Yangi matn uchun tarjima kaliti qo'shing, uchala tilda. <code>legacy-ui-*</code> faqat eski kod uchun.</p></div>
+    <div class="card"><h4>Tekshiruvlar</h4><p><code>npm run lint</code>, <code>npm run test:unit</code>, <code>npm run build</code>. Serversiz testlar: <code>e2e/*-mock.spec.ts</code>.</p></div>
+  </div>
+
+  <footer>
+    UzAssets IFRS qo'llanmasi · 2026-yil 19-noyabr holati. Sayt kodi o'zgarsa, 5-bo'limdagi ro'yxat va 8–9-bo'limlardagi baholarni yangilang.
+  </footer>
+</section>
+</main>
+</div>
+
+<script>
+(function(){
+  // [guruh, sahifa nomi, nima qiladi, manzil, papka]
+  var G = {
+    desk:"Buxgalter stoli", ref:"Ma'lumotnomalar", con:"Shartnomalar", data:"Ma'lumot yuklash",
+    core:"IFRS yadrosi", ops:"Operatsiyalar", bank:"Bank operatsiyalari", pay:"Ish haqi",
+    std:"IFRS standartlari", rep:"Hisobotlar", cons:"Konsolidatsiya", aud:"Audit",
+    ai:"AI va hujjatlar", set:"Sozlamalar", prof:"Profil", plat:"Platforma", hid:"Menyuda yo'q"
+  };
+  var P = [
+    ["desk","Bosh sahifa","Asosiy ko'rsatkichlar: daromad, xarajat, foyda, pul, qarzlar","/dashboard","dashboard"],
+    ["desk","Mening vazifalarim","Sizga berilgan ishlar ro'yxati","/tasks","tasks"],
+    ["desk","Tasdiqlashlar","Sizning tasdig'ingizni kutayotgan hujjatlar","/approvals","approvals"],
+    ["desk","Hujjatlar","Barcha birlamchi hujjatlar bitta ro'yxatda, filtr bilan","/document-catalog","documents"],
+    ["desk","Xaridlar va sotuvlar","Tovar sotish va xarid qilish hujjatlari","/operations/trade","operations"],
+    ["desk","Materiallar","Material kirimi, chiqimi, ko'chirish, hisobdan chiqarish","/operations/inventory","operations"],
+    ["desk","Bank va kassa","Kassa orderlari, bank to'lovlari va ko'chirmalari","/operations/cash-bank","operations"],
+    ["desk","To'lov kalendari","Qaysi kuni kimga qancha to'lash kerak","/payment-calendar","treasury"],
+    ["desk","Debitor-kreditor qarzlar","Kim bizga qarzdor, biz kimga qarzdormiz","/debts","debts"],
+    ["desk","Provodkalar","Barcha provodkalar ro'yxati","/postings","postings"],
+    ["desk","Operatsiyalar tarixi","Saytda kim qachon nima qilgani","/operation-history","operation-history"],
+
+    ["ref","Yuridik shaxslar","Korxonalar ro'yxati va rekvizitlari","/entities","entities"],
+    ["ref","Hisoblar rejasi","Schyotlar ro'yxati (milliy va IFRS)","/chart-accounts","chart-accounts"],
+    ["ref","Kontragentlar","Mijozlar va yetkazib beruvchilar","/counterparties","acc"],
+    ["ref","Bank hisobvaraqlari","Korxonaning bank hisoblari","/bank-accounts","bank"],
+    ["ref","Banklar ma'lumotnomasi","Banklar ro'yxati (MFO)","/bank-catalog","bank"],
+    ["ref","Valyutalar va kurslar","Valyuta kurslari, Markaziy bankdan yuklash, qayta baholash (IAS 21)","/currencies","currencies"],
+    ["ref","Xarajat moddalari","Xarajat turlari ro'yxati","/expense-articles","expense-articles"],
+    ["ref","IKPU ma'lumotnomasi","Mahsulot va xizmatlar soliq kodlari","/ikpu-catalog","ikpu"],
+    ["ref","Metallar (NSI)","Xomashyo va metallar ro'yxati","/commodities","commodity"],
+    ["ref","Eritish shartlari","Metall eritish zavodi bilan shartlar","/smelter-terms","commodity"],
+    ["ref","NSI","Boshqa ma'lumotnomalar","/admin/nsi","acc"],
+
+    ["con","Shartnomalar","Shartnomalar reyestri","/contracts","contracts"],
+    ["con","Debitor qarzdorlik","Mijozlarning bizga qarzi","/debts/receivable","debts"],
+    ["con","Kreditor qarzdorlik","Bizning qarzimiz","/debts/payable","debts"],
+    ["con","Avanslar","Berilgan va olingan avanslar","/debts/advances","debts"],
+    ["con","Qarzlar jamlanmasi","Umumiy qarzlar","/debts/summary","debts"],
+    ["con","Hisob-fakturalar","Elektron hisob-fakturalar (ESF)","/esf","esf"],
+
+    ["data","OSV import","1C dan aylanma-saldo qaydnomasini yuklash, tekshirish, moslashtirishni qo'llash","/import/trial-balance","import"],
+    ["data","Ma'lumot manbalari","Excel, CSV va zaxira nusxalardan yuklash","/data-sources","data-sources"],
+    ["data","ERP dan ETL","Boshqa tizimlardan avtomatik yuklash","/etl","etl"],
+    ["data","1C dan migratsiya","1C dan to'liq ko'chirish loyihasi","/migration","migration"],
+
+    ["core","Bosh kitob","Barcha provodkalar, qoldiqlar, qo'lda provodka, storno","/ledger","ledger"],
+    ["core","Davrlar","Oylar ro'yxati: ochiq yoki yopiq","/periods","periods"],
+    ["core","Davrni yopish","Oyni yopish va qayta ochish","/periods/close","periods"],
+    ["core","Yopish kokpiti","Oy yopish vazifalari ro'yxati va holati","/close-cockpit","close-cockpit"],
+    ["core","Parallel hisob","Milliy va IFRS hisobini yonma-yon yuritish","/parallel-accounting","parallel"],
+    ["core","Tuzatishlar","IFRS tuzatish provodkalari: qoralama → tasdiq → o'tkazish","/adjustments","adjustments"],
+    ["core","NSBU → IFRS moslashtirish","Milliy schyotni IFRS schyotiga bog'lash qoidalari","/mapping","mapping"],
+    ["core","Aylanma nazorati","Schyotlar aylanmasini tekshirish qoidalari","/turnover-controls","turnover-controls"],
+    ["core","Operatsion hisob","Kundalik buxgalteriya operatsiyalari","/operational-accounting","acc"],
+    ["core","Universal hisob","Tashqi hujjatlar va metama'lumotlar","/universal-accounting","universal-accounting"],
+
+    ["ops","Zaxiralar","Ombordagi tovar va materiallar qoldig'i (IAS 2)","/inventory","inventory"],
+    ["ops","Inventarizatsiya","Omborni sanash va farqlarni hisobga olish","/inventory-counts","inventory"],
+    ["ops","Xomashyo baholash","Metallarni sof sotish qiymati bo'yicha baholash","/commodity-valuation","commodity"],
+    ["ops","Asosiy vositalar","Asosiy vositalarni qabul qilish, ko'chirish, chiqarish","/operations/fixed-assets","operations"],
+    ["ops","Asosiy vositalar eskirishi","Oylik amortizatsiyani hisoblash","/operations/fixed-assets/depreciation","operations"],
+    ["ops","Asosiy vositalarni qayta baholash","Bozor narxi bo'yicha qayta baholash","/operations/fixed-assets/revaluation","operations"],
+    ["ops","Asosiy vositalar sozlamalari","Guruhlar, muddatlar, schyotlar","/operations/fixed-assets/settings","operations"],
+    ["ops","Ishlab chiqarish (hujjatlar)","Ishlab chiqarish hujjatlari","/operations/production","operations"],
+    ["ops","Ishlab chiqarish","Retseptlar (BOM), partiyalar, metallurgiya","/production","production"],
+    ["ops","Import va bojxona","Import hujjatlari, bojxona to'lovlari","/import-customs","import-customs"],
+    ["ops","Obyekt soliqlari","Mol-mulk, yer, suv solig'i","/object-taxes","object-taxes"],
+    ["ops","Sug'urta va da'volar","Sug'urta shartnomalari va to'lovlari","/insurance-claims","insurance-claims"],
+    ["ops","Risklar, jarimalar va sudlar","Sud ishlari va jarimalar","/legal-risk-cases","legal-risk"],
+
+    ["bank","G'aznachilik","To'lovlarni rejalashtirish va tasdiqlash","/treasury","treasury"],
+    ["bank","To'lovnomalar","To'lov so'rovlari","/payment-requests","treasury"],
+    ["bank","Bank solishtiruvi","Bank ko'chirmasini hisob bilan solishtirish","/bank-reconciliation","bank-recon"],
+    ["bank","Tahlil shablonlari","Bank ko'chirmasi fayllarini o'qish shablonlari","/bank-parsing-templates","bank"],
+    ["bank","Pul mablag'lari prognozi","Kelgusi oylarda pul qancha bo'lishi","/cash-forecast","cash-forecast"],
+    ["bank","Kreditlar va qarzlar","Olingan kreditlar, foiz, jadval (IFRS 9)","/loans","loans"],
+    ["bank","Kompaniyalararo qarzlar","Guruh ichidagi qarzlar","/intercompany-loans","loans"],
+
+    ["pay","Xodimlar","Xodimlar ro'yxati va kartochkasi","/payroll/employees","payroll"],
+    ["pay","Ish haqi","Ish haqini hisoblash","/payroll","payroll"],
+    ["pay","Tabel","Ish vaqti hisobi","/payroll/timesheets","payroll"],
+    ["pay","Kasallik varaqasi","Kasallik to'lovlari","/payroll/sick-leave","payroll"],
+    ["pay","Xizmat safari xarajatlari","Komandirovka xarajatlari","/payroll/travel-claims","payroll"],
+    ["pay","Mukofot va jarimalar","Bonus va ushlab qolishlar","/payroll/rewards-penalties","payroll"],
+    ["pay","Ish haqi vedomosti","To'lov qaydnomasi","/payroll/statement","payroll"],
+    ["pay","Ish haqi sozlamalari","Stavkalar, soliqlar, to'lov turlari","/payroll/settings","payroll"],
+
+    ["std","IFRSni birinchi qo'llash (IFRS 1)","IFRS ga o'tishdagi boshlang'ich balans va tanlovlar","/ifrs1","ifrs1"],
+    ["std","Asosiy vositalar (IAS 16)","IFRS bo'yicha asosiy vositalar reyestri","/ppe","ppe"],
+    ["std","Qadrsizlanish (IAS 36)","Aktiv qiymatining tushishini tekshirish","/ppe/:id/impairment","ppe"],
+    ["std","CGU ma'lumotnomasi","Pul yaratuvchi birliklar (IAS 36)","/cgu","ppe"],
+    ["std","NMA (IAS 38)","Nomoddiy aktivlar: dasturlar, litsenziyalar","/intangible-assets","ias38"],
+    ["std","Ijara (IFRS 16)","Ijara shartnomalari, aktiv va majburiyat","/leases","lease"],
+    ["std","Ijara jadvali","Ijara to'lovlari va foiz jadvali","/leases/:id/schedule","lease"],
+    ["std","Ijara o'zgarishlari","Ijara shartnomasini o'zgartirish","/leases/:id/modifications","lease"],
+    ["std","Tushum shartnomalari (IFRS 15)","Mijoz shartnomalari bo'yicha tushumni tan olish","/revenue/contracts","revenue"],
+    ["std","Moliyaviy instrumentlar (IFRS 9)","Obligatsiya, depozit, qarzlar","/financial-instruments","financial-instruments"],
+    ["std","Kapital va dividendlar","Ustav kapitali, dividend e'lon qilish","/equity-transactions","equity-transactions"],
+    ["std","Balansdan tashqari operatsiyalar","Kafolatlar, ijaraga olingan mulk va h.k.","/off-balance-operations","off-balance"],
+    ["std","Kelgusi davr daromad va xarajatlari","Oldindan to'langan va hisoblangan summalar","/accrual-deferrals","accrual-deferrals"],
+    ["std","Rezervlar (IAS 37)","Kelajakdagi majburiyatlar uchun zaxira","/provisions","provisions"],
+    ["std","Xodimlarga to'lovlar (IAS 19)","Ta'til, nafaqa majburiyatlari","/employee-benefits","ias19"],
+    ["std","Davlat subsidiyalari (IAS 20)","Davlatdan olingan yordam","/government-grants","ias20"],
+    ["std","Kon ishlari (IFRS 6)","Qidiruv xarajatlari, zaxiralar, yopish rezervi","/mining-ifrs6","mining"],
+    ["std","ECL (IFRS 9)","Qaytmay qolishi mumkin bo'lgan qarzlar uchun zaxira","/ecl","ecl"],
+    ["std","PD kalibrlash","Qarz qaytmaslik ehtimolini hisoblash","/pd-calibrations","pd"],
+    ["std","Kechiktirilgan soliq (IAS 12)","Soliq va IFRS hisobi farqidan kelib chiqadigan soliq","/deferred-tax","deferred-tax"],
+    ["std","Soliq deklaratsiyalari","Soliq hisobotlari","/tax-declarations","tax-declarations"],
+    ["std","Bog'liq tomonlar (IAS 24)","Egalar, rahbarlar va ularning korxonalari bilan operatsiyalar","/related-parties","related-parties"],
+    ["std","Hisob siyosati (IAS 8)","Korxonaning hisob qoidalari","/policies","policies"],
+
+    ["rep","CFO paneli","Moliya direktori uchun asosiy ko'rsatkichlar","/cfo-dashboard","cfo"],
+    ["rep","KPI","Samaradorlik ko'rsatkichlari","/kpi","kpi"],
+    ["rep","IFRS hisobotlari","Balans, foyda-zarar, pul oqimlari, kapital, AOS; snapshot va yuklab olish","/reports","reports"],
+    ["rep","1C hisobotlari","ОСВ по счёту, Анализ счёта, Главная книга","/reports/one-c","reports"],
+    ["rep","Qiyosiy hisobotlar","Ikki davrni solishtirish","/reports/comparative","comparative"],
+    ["rep","Hisobot konstruktori","O'z hisobotingizni tuzish","/reports/builder","reports"],
+    ["rep","Hisob kartasi","Bitta schyot bo'yicha barcha harakatlar","/reports/account-card","reports"],
+    ["rep","Kassa kitobi","Kassa kirim-chiqimi va qoldig'i","/operations/cash-bank/cash-book","operations"],
+    ["rep","Saqlangan ko'rinishlar","Saqlab qo'yilgan filtrlar","/saved-views","saved-views"],
+    ["rep","Byudjet / Fakt","Reja va haqiqiy natijani solishtirish","/budget","budget"],
+    ["rep","Izohlar","IFRS hisobotiga izohlar va tekshiruv ro'yxati","/disclosures","disclosures"],
+    ["rep","MPM ko'rsatkichlari (IFRS 18)","Rahbariyat tomonidan belgilangan ko'rsatkichlar","/mpms","mpm"],
+    ["rep","Segmentlar (IFRS 8)","Faoliyat yo'nalishlari bo'yicha hisobot","/segments","segments"],
+    ["rep","Detallashtirish","Hisobot raqamidan provodkagacha tushish","/drill-down","drilldown"],
+    ["rep","Davr surati","Yopilgan davrning muzlatilgan nusxasi","/period-snapshot","period-snapshot"],
+    ["rep","BI eksport","Power BI va boshqa tizimlarga yuklash","/bi-export","bi"],
+
+    ["cons","Konsolidatsiya","Guruh korxonalarini birlashtirgan hisobot (IFRS 10)","/consolidation","consolidation"],
+    ["cons","Eliminatsiyalar","Guruh ichidagi operatsiyalarni olib tashlash","/eliminations","eliminations"],
+    ["cons","Kompaniyalararo","Guruh ichidagi operatsiyalar","/consolidation/intercompany","intercompany"],
+    ["cons","Kompaniyalararo solishtiruv","Guruh korxonalari qoldiqlarini solishtirish","/consolidation/intercompany-reconciliation","intercompany-reconciliation"],
+    ["cons","Kapital tarixiy kurslari","Kapital uchun tarixiy valyuta kurslari","/consolidation/equity-historical-rates","equity-historical-rates"],
+    ["cons","Ulush usuli (IAS 28)","Assotsiatsiyalangan korxonalardagi ulush","/consolidation/equity-method","equity-method"],
+
+    ["aud","Audit to'plami","Auditorga beriladigan hujjatlar paketi","/audit-pack","audit"],
+    ["aud","Auditor portali","Tashqi auditor uchun kirish","/auditor","auditor"],
+    ["aud","Audit jurnali","Barcha o'zgarishlar tarixi","/audit","audit"],
+
+    ["ai","AI yordamchi","Savol-javob (hozir o'chirilgan)","/ai","ai"],
+    ["ai","AI sarfi","AI ishlatish statistikasi (hozir o'chirilgan)","/ai/usage","ai"],
+    ["ai","AI provodka anomaliyalari","Shubhali provodkalarni topish (hozir o'chirilgan)","/ai/anomalies","anomalies"],
+    ["ai","Stsenariylar","\"Agar ... bo'lsa\" hisob-kitoblari","/scenarios","scenarios"],
+    ["ai","Hujjatlarni tanib olish","Skanerlangan hujjatdan ma'lumot olish","/documents","documents"],
+    ["ai","Bilimlar bazasi","Ichki qo'llanmalar va standartlar","/knowledge","knowledge"],
+
+    ["set","Tashkilot sozlamalari","Tashkilot ma'lumotlari","/tenant","tenant"],
+    ["set","Foydalanuvchilar","Xodimlarni taklif qilish, rollar berish","/users","users"],
+    ["set","Limitlar","Foydalanish chegaralari","/tenant/quotas","quotas"],
+    ["set","Integratsiyalar","Bank-klient, soliq va boshqa tizimlar bilan ulanish","/integrations","integrations"],
+    ["set","Local LLM","Mahalliy AI modeli sozlamasi (administrator)","/integrations/local-llm","integrations"],
+    ["set","Chiquvchi vebhuklar","Boshqa tizimlarga avtomatik xabar yuborish","/webhooks/subscriptions","webhooks"],
+    ["set","Email shablonlar","Xat namunalari","/email-templates","email"],
+    ["set","Obuna","Tarif va to'lov","/billing","billing"],
+    ["set","Tashkilot hisobi","Billing hisobi","/billing/account","billing-account"],
+
+    ["prof","Bildirishnomalar","Sizga kelgan xabarlar","/notifications","notifications"],
+    ["prof","Profil sozlamalari","Til, tema va shaxsiy sozlamalar","/profile/settings","profile"],
+    ["prof","Parolni almashtirish","Yangi parol qo'yish","/profile/change-password","auth"],
+    ["prof","MFA","Ikki bosqichli kirish (telefon kodi)","/profile/mfa","profile"],
+    ["prof","Veb-push","Brauzerga bildirishnoma","/profile/push","profile"],
+    ["prof","Maxfiylik","Shaxsiy ma'lumotlarni yuklab olish yoki o'chirish","/profile/gdpr","profile"],
+
+    ["plat","Platforma sozlamalari","Butun platforma sozlamalari (administrator)","/platform/settings","platform"],
+    ["plat","OIDC provayderlar","Tashqi tizim orqali kirish sozlamasi","/platform/oidc","platform"],
+    ["plat","Status","Tizim holati","/platform/status","status"],
+
+    ["hid","Kirish","Login sahifasi","/login","auth"],
+    ["hid","Ro'yxatdan o'tish","Yangi tashkilot ochish","/register","auth"],
+    ["hid","Email tasdiqlash","Ro'yxatdan o'tgandan keyin","/verify","auth"],
+    ["hid","Parolni tiklash","Parolni unutganda","/forgot-password, /reset-password","auth"],
+    ["hid","Tashqi kirish qaytishi","OIDC orqali kirgandan keyin","/auth/oidc/callback","auth"],
+    ["hid","Auditor yuklab olishi","Auditor uchun fayl yuklab olish havolasi","/auditor-download","auditor"],
+    ["hid","Boshlash","Birinchi kirishda sozlash ustasi","/onboarding","onboarding"],
+    ["hid","Bosh buxgalter paneli","Bosh buxgalter uchun ko'rsatkichlar","/chief-accountant","chief-accountant"],
+    ["hid","Bank ko'chirmalari","Bank va kassa sahifasining ko'chirmalar bo'limi","/operations/cash-bank/statements","operations"],
+    ["hid","To'lovdan qaytish","Obuna to'lovidan keyin","/billing/return","billing-account"]
+  ];
+
+  var rows=document.getElementById('rows'), q=document.getElementById('q'), grp=document.getElementById('grp'),
+      cnt=document.getElementById('cnt'), empty=document.getElementById('empty');
+  Object.keys(G).forEach(function(k){var o=document.createElement('option');o.value=k;o.textContent=G[k];grp.appendChild(o);});
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function render(){
+    var term=(q.value||'').trim().toLowerCase(), g=grp.value, html='', n=0;
+    P.forEach(function(r){
+      if(g && r[0]!==g) return;
+      var hay=(G[r[0]]+' '+r[1]+' '+r[2]+' '+r[3]+' '+r[4]).toLowerCase();
+      if(term && hay.indexOf(term)===-1) return;
+      n++;
+      html+='<tr><td><b>'+esc(r[1])+'</b><br><span class="g" style="font-size:12.5px;color:var(--muted)">'+esc(G[r[0]])+'</span></td><td>'+esc(r[2])+'</td><td class="mono">'+esc(r[3])+'</td><td class="mono">'+esc(r[4])+'/</td></tr>';
+    });
+    rows.innerHTML=html; empty.hidden=n>0; cnt.textContent=n+' / '+P.length+' ta sahifa';
+  }
+  q.addEventListener('input',render); grp.addEventListener('change',render); render();
+
+  var btn=document.getElementById('themebtn');
+  function cur(){var t=document.documentElement.getAttribute('data-theme'); if(t) return t; return matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+  try{var saved=localStorage.getItem('qollanma-theme'); if(saved) document.documentElement.setAttribute('data-theme',saved);}catch(e){}
+  btn.addEventListener('click',function(){var n=cur()==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('qollanma-theme',n);}catch(e){}});
+})();
+</script>
+</body>
+</html>
